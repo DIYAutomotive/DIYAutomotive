@@ -9,17 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/*")
+@WebServlet("/")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-    public Servlet() {
-        super();
-    }
+
     
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
 		view.forward(request, response);
 	}
 	
