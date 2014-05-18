@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Posts 
 {
-	HashMap postMap;
+	HashMap<Integer, PostModel> postMap;
 	public Posts()
 	{
 		postMap = new HashMap();
 	}
-	public void AddPost(CommentModel comment)
+	public void AddPost(PostModel post)
 	{
-		postMap.put(comment.getID(), comment);
+		postMap.put(post.getPostID(), post);
 	}
 	public PostModel getComment(int ID)
 	{
@@ -23,10 +23,6 @@ public class Posts
 	{
 		postMap.remove(ID);
 	}
-	public HashMap getPostMap() {
-		return postMap;
-	}
-	
 	
 	
 }

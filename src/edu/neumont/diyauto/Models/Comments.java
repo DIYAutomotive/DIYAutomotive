@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Comments 
 {
-	private HashMap commentsList;
+	private HashMap<Integer, CommentModel> commentsList;
 	public Comments()
 	{
 		commentsList = new HashMap();
