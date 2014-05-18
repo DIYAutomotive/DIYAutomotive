@@ -1,4 +1,4 @@
-package edu.neumont.diyauto.Models;
+package edu.neumont.diyauto;
 
 public enum TagModel 
 {
