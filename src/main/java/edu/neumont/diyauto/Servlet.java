@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
+@WebServlet("/test")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -19,7 +19,7 @@ public class Servlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
 	}
 	
@@ -40,7 +40,7 @@ public class Servlet extends HttpServlet {
 		
 		request.setAttribute("list", values);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/GeneratedSolution.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB_INF/GeneratedSolution.jsp");
 		view.forward(request, response);
 	}
 
