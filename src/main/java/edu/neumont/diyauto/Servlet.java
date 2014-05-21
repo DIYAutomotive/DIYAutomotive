@@ -40,7 +40,7 @@ public class Servlet extends HttpServlet {
 		
 		request.setAttribute("list", values);
 		
-		RequestDispatcher view = request.getRequestDispatcher("WEB_INF/GeneratedSolution.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("GeneratedSolution.jsp");
 		view.forward(request, response);
 	}
 
