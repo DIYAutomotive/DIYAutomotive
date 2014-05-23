@@ -41,7 +41,8 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("list", values);
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/GeneratedSolution.jsp");
-		view.forward(request, response);
+
+        view.forward(request, response);
 	}
 
 }

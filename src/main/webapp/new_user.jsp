@@ -1,16 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jjensen
-  Date: 5/19/14
-  Time: 11:40 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-</body>
-</html>
+<t:genericpage>
+    <jsp:body>
+        <!--Your content goes here-->
+        <p>Hi I'm the heart of the message</p>
+    </jsp:body>
+</t:genericpage>
