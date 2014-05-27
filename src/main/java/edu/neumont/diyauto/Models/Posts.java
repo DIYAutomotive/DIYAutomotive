@@ -9,7 +9,7 @@ public class Posts
 	HashMap<Integer, PostModel> postMap;
 	public Posts()
 	{
-		postMap = new HashMap();
+		postMap = new HashMap<Integer, PostModel>();
 	}
 	public void AddPost(PostModel post)
 	{
