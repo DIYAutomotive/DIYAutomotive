@@ -2,7 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     /*font-family: "Century Gothic", Verdana, Arial, sans-serif;*/
-    font-family: sans-serif;
+    font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;;
+    font-size: 20px;
 
 }
 
@@ -10,6 +11,17 @@ table th {
     padding: 5px 5px 5px 5px;
     border: 1px solid #666666;
 
+}
+
+input {
+    font-size: 18px;
+}
+
+input[type=text] {
+    border:1px solid;
+    border-radius:4px;
+    font-size: 18px;
+    width: 500;
 }
 
 
