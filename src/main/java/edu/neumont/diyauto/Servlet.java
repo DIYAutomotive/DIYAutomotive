@@ -25,23 +25,39 @@ public class Servlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String prob1 = request.getParameter("problem1");
-		String prob2 = request.getParameter("problem2");
-		String prob3 = request.getParameter("problem3");
-		String prob4 = request.getParameter("problem4");
-		String prob5 = request.getParameter("problem5");
+		String problem = request.getParameter("input");
 		
 		ArrayList<String> values = new ArrayList<String>();
-		values.add(prob1);
-		values.add(prob2);
-		values.add(prob3);
-		values.add(prob4);
-		values.add(prob5);
+		logic(problem, values);
 		
 		request.setAttribute("list", values);
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/GeneratedSolution.jsp");
 		view.forward(request, response);
+	}
+
+	private void logic(String problem, ArrayList<String> values) {
+		if(problem.contains("brake") || problem.contains("shak"))
+			values.add("brake");
+		else
+			values.add(null);
+		if(problem.contains("idling") || problem.contains("die") || problem.contains("leak"))
+			values.add("idling");
+		else
+			values.add(null);
+		if(problem.contains("start") || problem.contains("battery"))
+			values.add("start");
+		else
+			values.add(null);
+		if(problem.contains("steering") || problem.contains("squealing") || problem.contains("screech"))
+			values.add("steering");
+		else
+			values.add(null);
+		if(problem.contains("clutch") || problem.contains("slipping") || problem.contains("gear") || problem.contains("grinding"))
+			values.add("clutch");
+		else
+			values.add(null);
+		
 	}
 
 }
