@@ -71,8 +71,8 @@ public class Servlet extends HttpServlet {
 	
 	}
 
-	private void logic(String problem, ArrayList<String> values) {
-		problem.toLowerCase();
+	private void logic(String prob, ArrayList<String> values) {
+		String problem = prob.toLowerCase();
 		
 		if(problem.contains("brake") || problem.contains("shak"))
 			values.add("brake");
