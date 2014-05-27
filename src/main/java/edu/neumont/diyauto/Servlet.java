@@ -71,7 +71,9 @@ public class Servlet extends HttpServlet {
 	
 	}
 
-	private void logic(String problem, ArrayList<String> values) {
+	private void logic(String prob, ArrayList<String> values) {
+		String problem = prob.toLowerCase();
+		
 		if(problem.contains("brake") || problem.contains("shak"))
 			values.add("brake");
 		else
@@ -92,6 +94,16 @@ public class Servlet extends HttpServlet {
 			values.add("clutch");
 		else
 			values.add(null);
+		
+//		boolean isEmpty = false;
+//		for(int i = 0; i < values.size(); i++){
+//			isEmpty = values.get(i) == null;
+//		}
+//		
+//		if(isEmpty)
+//			values.add("empty");
+//		else
+//			values.add(null);
 		
 	}
 

@@ -9,6 +9,7 @@
 <t:genericpage>
     <jsp:body>
         <h1>Our $0.02</h1>
+        <hr>
         <c:choose>
             <c:when test="${list.get(0) != null}">
                 <h3>Brakes</h3>
