@@ -20,9 +20,8 @@ public class ThreadGetController
 	}
 	public ModelAndView createThread()
 	{
-		int threadID = ServiceLoader.threadID++;
-		
-		return null;
+		ModelAndView MAV = new ModelAndView(null, "/CreateThread");
+		return MAV;
 		
 	}
 	public ModelAndView getThread(int ID)

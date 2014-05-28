@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import diyautoControllers.ThreadGetController;
+import diyautoControllers.ThreadPostController;
 import edu.neumont.diyauto.Models.ModelAndView;
 
 @WebServlet("/test")
@@ -44,7 +46,26 @@ public class Servlet extends HttpServlet {
 	private static final Pattern P = Pattern.compile("(/threads)");
 	private static final Pattern P2 = Pattern.compile("(/threads)(/create)");
 	private static final Pattern P3 = Pattern.compile("(/thread/)([A-Za-z]+)");
+	private static final Pattern P4 = Pattern.compile("(/thread/)([0-9]+)");
 	
+	public ModelAndView PostURIParser(HttpServletRequest request, HttpServletResponse response)
+	{
+		String URI = request.getRequestURI();
+		ModelAndView MAV = null;
+		Matcher match = this.P.matcher(URI);
+		Matcher match2 = this.P2.matcher(URI);
+		Matcher match3 = this.P3.matcher(URI);
+		Matcher match4 = this.P4.matcher(URI);
+		
+		if(match2.find())
+		{
+			ThreadPostController tpc = new ThreadPostController(request, response);
+			MAV = tpc.createThread();
+		}
+		
+		
+		return MAV;
+	}
 	public ModelAndView getURIParser(HttpServletRequest request, HttpServletResponse response)
 	{
 		String URI = request.getRequestURI();
@@ -52,6 +73,7 @@ public class Servlet extends HttpServlet {
 		Matcher match = this.P.matcher(URI);
 		Matcher match2 = this.P2.matcher(URI);
 		Matcher match3 = this.P3.matcher(URI);
+		Matcher match4 = this.P4.matcher(URI);
 		
 		if(match.find())
 		{
@@ -59,11 +81,14 @@ public class Servlet extends HttpServlet {
 		}
 		else if(match2.find())
 		{
-			
+			ThreadGetController threadGet = new ThreadGetController(request, response);
+			MAV = threadGet.createThread();
 		}
-		else if(match3.find())
+		else if(match4.find())
 		{
-			
+			ThreadGetController threadGet = new ThreadGetController(request,response);
+			int ID = Integer.parseInt(match4.group(2));
+			MAV = threadGet.getThread(ID);
 		}
 		return MAV;
 		
