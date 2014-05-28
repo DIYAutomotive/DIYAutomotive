@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create post</title>
-</head>
-<body>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-</body>
-</html>
+<t:genericpage>
+    <jsp:body>
+        <!--Your content goes here-->
+        <h1>New Post</h1>
+        <hr>
+        <form method="post" action="">
+            Thread: <select name="thread"></select><br/>
+            Title: <input type="text" name="title"/><br/>
+            Post Body:<br/> <textarea cols="30" rows="7" name="postBody"></textarea><br/>
+            Tags: <input type="text" name="tags"/><br/>
+            Example:(brakes,roters,hub,wheel)<br/>
+            <input type="submit">
+        </form>
+    </jsp:body>
+</t:genericpage>
