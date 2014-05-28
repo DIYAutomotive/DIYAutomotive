@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import diyautoControllers.ThreadGetController;
-import diyautoControllers.ThreadPostController;
+import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
+import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
 import edu.neumont.diyauto.Models.ModelAndView;
 
 @WebServlet("/test")

@@ -1,4 +1,4 @@
-package diyautoControllers;
+package edu.neumont.diyauto.diyautoControllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,29 +8,31 @@ import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.ThreadModel;
 import edu.neumont.diyauto.Models.Threads;
 
-public class ThreadGetController 
-{
+public class ThreadPostController {
 	HttpServletRequest request;
 	HttpServletResponse response;
 	Threads threads = ServiceLoader.threads;
-	public ThreadGetController(HttpServletRequest request, HttpServletResponse response) 
+	public ThreadPostController(HttpServletRequest request, HttpServletResponse response) 
 	{
 		this.request = request;
 		this.response = response;
 	}
+
 	public ModelAndView createThread()
 	{
-		ModelAndView MAV = new ModelAndView(null, "/CreateThread");
+		int ID = ServiceLoader.threadID++;
+		String Name = (String) request.getAttribute("Name");
+		ThreadModel thread = new ThreadModel(ID, Name);
+		
+		ModelAndView MAV = new ModelAndView(thread, "/ThreadView/" + ID+ ".jsp");
 		return MAV;
 		
 	}
 	public ModelAndView getThread(int ID)
 	{
 		ThreadModel thread = threads.getThread(ID);
-		ModelAndView MAV = new ModelAndView(thread, "ThreadView");
+		ModelAndView MAV = new ModelAndView(thread, "ThreadView.jsp");
 		return MAV;
 		
 	}
-	
-	
 }

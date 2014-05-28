@@ -6,12 +6,12 @@
         <!--Your content goes here-->
         <h1>New User</h1>
         <hr>
-        <form method="post" action="test">
-            Username: <input type="text" name="userName"/>
-            Password: <input type="password" name="password"/>
-            Confirm Password: <input type="password" name="confirmPassword"/>
-            Avatar Url: <input type="text" name="avatarUrl"/>
-            Email: <input type="text" name="email"/>
+        <form method="post" action="">
+            Username: <input type="text" name="userName"/><br/>
+            Password: <input type="password" name="password"/><br/>
+            Confirm Password: <input type="password" name="confirmPassword"/><br/>
+            Avatar Url: <input type="text" name="avatarUrl"/><br/>
+            Email: <input type="text" name="email"/><br/>
             <input type="submit">
         </form>
     </jsp:body>

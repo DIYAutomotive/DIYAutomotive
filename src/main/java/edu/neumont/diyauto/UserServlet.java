@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by jjensen on 5/28/14.
  */
-@WebServlet("/test")
+@WebServlet("/user")
 public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
