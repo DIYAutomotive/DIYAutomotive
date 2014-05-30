@@ -24,6 +24,15 @@ input:not([type=checkbox]) {
     width: 1000;
 }
 
+span {
+    display: inline;
+    font-size: 40px;
+}
+
+.clearboth {
+    clear:both;
+}
+
 
 #wrapper {
     margin-top: 0;
@@ -32,14 +41,33 @@ input:not([type=checkbox]) {
 }
 
 #header {
-    height: 75px;
+    height: 100px;
     display: flex;
+}
+
+#loginInfo {
+    float: right;
+    padding-right: 40px;
+    padding-top: 20px;
+}
+
+#loginInfo a{
+    border: 2px solid;
+    background-image: linear-gradient(#f2f5f6 0%,#E5E6E7 37%,#CBCCCD 100%);
+    color: #000000;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#loginInfo a:hover{
+    background: black;
+    color: whitesmoke;
 }
 
 #logo {
     color: #ffffff;
-    height: 75px;
-    width: 300px;
+    height: 100px;
+    width: 700px;
     padding-left: 10px;
     min-width: 300px;
     background-image: linear-gradient(#444, #111);
@@ -48,12 +76,12 @@ input:not([type=checkbox]) {
 }
 
 .logo {
-    height: 75px;
+    height: 100px;
     width: 300px;
 }
 
 #headerend {
-    height: 75px;
+    height: 100px;
     background-image: linear-gradient(#444, #111);
     width: 100%;
     float: left;

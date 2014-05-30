@@ -13,8 +13,12 @@
 <div id="wrapper">
     <div id="header">
 
-        <div id="logo"><h1>DIYAutomotive</h1></div>
-        <div id="headerend"></div>
+        <div id="logo"><span><img src="/images/EngineWhitev6.gif" style="width: 150px; height: 85px;"/></span><span>DIYAutomotive</span></div>
+        <div id="headerend">
+            <div id="loginInfo">
+                <a href="/user">Signup</a>
+            </div>
+        </div>
     </div>
 
     <div id="contentWrapper">
