@@ -20,14 +20,14 @@ public class ThreadGetController
 	}
 	public ModelAndView createThread()
 	{
-		ModelAndView MAV = new ModelAndView(null, "/CreateThread");
+		ModelAndView MAV = new ModelAndView(null, "/WEB-INF/CreateThread.jsp");
 		return MAV;
 		
 	}
 	public ModelAndView getThread(int ID)
 	{
 		ThreadModel thread = threads.getThread(ID);
-		ModelAndView MAV = new ModelAndView(thread, "ThreadView");
+		ModelAndView MAV = new ModelAndView(thread, "/WEB-INF/ThreadView.jsp");
 		return MAV;
 		
 	}

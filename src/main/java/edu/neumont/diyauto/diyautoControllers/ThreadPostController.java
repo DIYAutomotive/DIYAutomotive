@@ -21,10 +21,13 @@ public class ThreadPostController {
 	public ModelAndView createThread()
 	{
 		int ID = ServiceLoader.threadID++;
-		String Name = (String) request.getAttribute("Name");
+		String Name = (String) request.getAttribute("title");
 		ThreadModel thread = new ThreadModel(ID, Name);
-		
-		ModelAndView MAV = new ModelAndView(thread, "/ThreadView/" + ID+ ".jsp");
+		if(request.getAttribute("description").toString() != null)
+		{
+			thread.setDescription(request.getAttribute("description").toString());
+		}
+		ModelAndView MAV = new ModelAndView(thread, "/ThreadView/" + ID + ".jsp");
 		return MAV;
 		
 	}

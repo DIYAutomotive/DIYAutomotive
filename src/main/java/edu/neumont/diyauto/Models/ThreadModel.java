@@ -5,6 +5,7 @@ public class ThreadModel
 	private int ThreadID;
 	private String Name;
 	private Posts posts;
+	private String Description;
 	public ThreadModel(int ThreadID, String Name)
 	{
 		this.ThreadID = ThreadID;
@@ -22,6 +23,12 @@ public class ThreadModel
 	}
 	public Posts getPosts() {
 		return posts;
+	}
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
 	}
 	
 }
