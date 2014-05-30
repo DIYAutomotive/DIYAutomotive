@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * Created by jjensen on 5/28/14.
  */
-@WebServlet("/thread")
+@WebServlet("/threads")
 public class ThreadServlet extends HttpServlet {
 
     @Override
@@ -78,7 +78,9 @@ public class ThreadServlet extends HttpServlet {
 
         if(match.find())
         {
+            ThreadGetController threadGet = new ThreadGetController(request, response);
 
+            MAV = threadGet.createThread();
         }
         else if(match2.find())
         {
