@@ -24,8 +24,7 @@ public class Servlet extends HttpServlet {
     
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModelAndView MAV = getURIParser(request, response);
-		
+
 		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
 	}
@@ -42,58 +41,6 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/GeneratedSolution.jsp");
 
         view.forward(request, response);
-	}
-	private static final Pattern P = Pattern.compile("(/threads)");
-	private static final Pattern P2 = Pattern.compile("(/threads)(/create)");
-	private static final Pattern P3 = Pattern.compile("(/thread/)([A-Za-z]+)");
-	private static final Pattern P4 = Pattern.compile("(/thread/)([0-9]+)");
-	
-	public ModelAndView PostURIParser(HttpServletRequest request, HttpServletResponse response)
-	{
-		String URI = request.getRequestURI();
-		ModelAndView MAV = null;
-		Matcher match = this.P.matcher(URI);
-		Matcher match2 = this.P2.matcher(URI);
-		Matcher match3 = this.P3.matcher(URI);
-		Matcher match4 = this.P4.matcher(URI);
-		
-		if(match2.find())
-		{
-			ThreadPostController tpc = new ThreadPostController(request, response);
-			MAV = tpc.createThread();
-		}
-		
-		
-		return MAV;
-	}
-	public ModelAndView getURIParser(HttpServletRequest request, HttpServletResponse response)
-	{
-		String URI = request.getRequestURI();
-		ModelAndView MAV = null;
-		Matcher match = this.P.matcher(URI);
-		Matcher match2 = this.P2.matcher(URI);
-		Matcher match3 = this.P3.matcher(URI);
-		Matcher match4 = this.P4.matcher(URI);
-		
-		if(match.find())
-		{
-			
-		}
-		else if(match2.find())
-		{
-			ThreadGetController threadGet = new ThreadGetController(request, response);
-			MAV = threadGet.createThread();
-		}
-		else if(match4.find())
-		{
-			ThreadGetController threadGet = new ThreadGetController(request,response);
-			int ID = Integer.parseInt(match4.group(2));
-			MAV = threadGet.getThread(ID);
-		}
-		return MAV;
-		
-	
-	
 	}
 
 	private void logic(String prob, ArrayList<String> values) {
