@@ -22,7 +22,9 @@ public class ThreadServlet extends HttpServlet {
     private static final Pattern P = Pattern.compile("(/threads)");
     private static final Pattern P2 = Pattern.compile("(/threads)(/create)");
     private static final Pattern P3 = Pattern.compile("(/threads/)([A-Za-z]+)");
-    private static final Pattern P4 = Pattern.compile("(/threads/)([0-9]+)");
+    private static final Pattern P4 = Pattern.compile("(/threads/)(viewAll)");
+    private static final Pattern P5 = Pattern.compile("(/threads/)(all)");
+    private static final Pattern P6 = Pattern.compile("(/threads/)([0-9]+)");
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ModelAndView MAV = getURIParser(request, response);
@@ -46,10 +48,21 @@ public class ThreadServlet extends HttpServlet {
         Matcher match2 = this.P2.matcher(URI);
         Matcher match3 = this.P3.matcher(URI);
         Matcher match4 = this.P4.matcher(URI);
+        Matcher match5 = this.P5.matcher(URI);
+        Matcher match6 = this.P5.matcher(URI);
+
         if(match4.find())
         {
             int ID = Integer.parseInt(match4.group(2));
             MAV = threadGet.getThread(ID);
+        }
+        else if(match5.find())
+        {
+            MAV = threadGet.getAll();
+        }
+        else if(match6.find())
+        {
+            MAV = threadGet.getAll();
         }
         else if(match.find())
         {

@@ -8,6 +8,8 @@ import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.ThreadModel;
 import edu.neumont.diyauto.Models.Threads;
 
+import java.util.HashSet;
+
 public class ThreadGetController 
 {
 	HttpServletRequest request;
@@ -18,6 +20,12 @@ public class ThreadGetController
 		this.request = request;
 		this.response = response;
 	}
+    public ModelAndView getAll()
+    {
+        HashSet<ThreadModel> allThreads = threads.getAll();
+        ModelAndView MAV = new ModelAndView(allThreads,"/WEB-INF/ViewAllThreads.jsp");
+        return MAV;
+    }
 	public ModelAndView createThread()
 	{
 		ModelAndView MAV = new ModelAndView(null, "/WEB-INF/CreateThread.jsp");
