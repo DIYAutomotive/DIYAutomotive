@@ -16,7 +16,7 @@ import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
 import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
 import edu.neumont.diyauto.Models.ModelAndView;
 
-@WebServlet("/test")
+@WebServlet("/test/*")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

@@ -21,20 +21,20 @@ public class ThreadPostController {
 	public ModelAndView createThread()
 	{
 		int ID = ServiceLoader.threadID++;
-		String Name = (String) request.getAttribute("title");
+		String Name = request.getParameter("title").toString();
 		ThreadModel thread = new ThreadModel(ID, Name);
-		if(request.getAttribute("description").toString() != null)
+		if(request.getParameter("description").toString() != null)
 		{
-			thread.setDescription(request.getAttribute("description").toString());
+			thread.setDescription(request.getParameter("description").toString());
 		}
-		ModelAndView MAV = new ModelAndView(thread, "/ThreadView/" + ID + ".jsp");
+		ModelAndView MAV = new ModelAndView(thread, "/threads/" + ID);
 		return MAV;
 		
 	}
 	public ModelAndView getThread(int ID)
 	{
 		ThreadModel thread = threads.getThread(ID);
-		ModelAndView MAV = new ModelAndView(thread, "ThreadView.jsp");
+		ModelAndView MAV = new ModelAndView(thread, "/WEB-INF/ThreadView/" + ID + ".jsp");
 		return MAV;
 		
 	}
