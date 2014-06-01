@@ -6,7 +6,7 @@
         <h2>Threads</h2>
         <hr>
         <c:forEach var="thread" items="${Model}">
-            <a href="/threads/${thread.id}">${thread.description}</a>
+            <a href="/threads/${thread.id}">${thread.name}</a>
         </c:forEach>
 
     </jsp:body>

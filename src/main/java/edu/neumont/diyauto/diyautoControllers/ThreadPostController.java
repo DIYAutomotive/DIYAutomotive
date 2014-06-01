@@ -23,10 +23,14 @@ public class ThreadPostController {
 		int ID = ServiceLoader.threadID++;
 		String Name = request.getParameter("title").toString();
 		ThreadModel thread = new ThreadModel(ID, Name);
-		if(request.getParameter("description").toString() != null)
+
+        if(request.getParameter("description").toString() != null)
 		{
 			thread.setDescription(request.getParameter("description").toString());
 		}
+
+        threads.AddPost(thread);
+
 		ModelAndView MAV = new ModelAndView(thread, "/threads/" + ID);
 		return MAV;
 		

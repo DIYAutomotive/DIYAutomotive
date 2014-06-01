@@ -9,6 +9,7 @@ import edu.neumont.diyauto.Models.ThreadModel;
 import edu.neumont.diyauto.Models.Threads;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class ThreadGetController 
 {
@@ -22,12 +23,13 @@ public class ThreadGetController
 	}
     public ModelAndView getAll()
     {
-        HashSet<ThreadModel> allThreads = threads.getAll();
-        ModelAndView MAV = new ModelAndView(allThreads,"/WEB-INF/ViewAllThreads.jsp");
+        Set<ThreadModel> allThreads = threads.getAll();
+        ModelAndView MAV = new ModelAndView(allThreads,"/WEB-INF/views/threads/AllThreadsView.jsp");
         return MAV;
     }
 	public ModelAndView createThread()
 	{
+
 		ModelAndView MAV = new ModelAndView(null, "/WEB-INF/views/threads/CreateThread.jsp");
 		return MAV;
 		

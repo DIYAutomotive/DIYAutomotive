@@ -19,6 +19,7 @@ public class ServiceLoader implements ServletContextListener
 	public void contextInitialized(ServletContextEvent arg0) {
 
 		threadID = 0001;
+        threads = new Threads();
 	}
 	
 	@Override

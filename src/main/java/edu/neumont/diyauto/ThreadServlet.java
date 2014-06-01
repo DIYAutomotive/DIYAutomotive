@@ -51,6 +51,8 @@ public class ThreadServlet extends HttpServlet {
         Matcher match5 = this.P5.matcher(URI);
         Matcher match6 = this.P5.matcher(URI);
 
+        //This needs to be fixed you are handling and integer but
+        //according to your pattern it should say all so that does not parse
         if(match4.find())
         {
             int ID = Integer.parseInt(match4.group(2));
