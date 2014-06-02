@@ -14,7 +14,7 @@
         <h2>Welcome to DIY Automotive!!!</h2>
         <h5>Having a problem with your vehicle? Don't worry, it may just be a simple common problem. Select which problem your vehicle is having (if any):</h5>
 
-        <form method="post" action="">
+        <form method="post" action="test">
             <input name="input" type="text"/>
             <br>
             <input type="submit" value="Submit"/>
