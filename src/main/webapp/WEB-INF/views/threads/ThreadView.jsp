@@ -11,7 +11,7 @@
         <hr>
         <a href="/threads/${Model.threadID}/post/create">Create Post</a>
         <c:forEach var="post" items="${Model.posts.allPosts}">
-            <a href="/threads/${thread.id}">${thread.name}</a>
+            <a href="/threads/${Model.threadID}/post/${post.postID}">${post.title}</a>
         </c:forEach>
 
     </jsp:body>
