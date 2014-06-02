@@ -6,13 +6,20 @@ public class PostModel
 	private int UserID;
 	private String Description;
 	private Comments comments;
-	public PostModel(int PostID, int UserID, String Description)
+    private String title;
+
+	public PostModel(String title, int PostID, int UserID, String Description)
 	{
 		this.PostID = PostID;
 		this.UserID = UserID;
 		this.Description = Description;
+        this.title = title;
 		comments = new Comments();
 	}
+
+    public String getTitle() {
+        return title;
+    }
 	public String getDescription() {
 		return Description;
 	}

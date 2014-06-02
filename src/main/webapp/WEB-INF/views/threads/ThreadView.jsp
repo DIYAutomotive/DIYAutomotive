@@ -9,7 +9,7 @@
         <!--Your content goes here-->
         <h2>${Model.name}</h2>
         <hr>
-        <c:forEach var="thread" items="${Model.all}">
+        <c:forEach var="post" items="${Model.posts}">
             <a href="/threads/${thread.id}">${thread.name}</a>
         </c:forEach>
 
