@@ -15,10 +15,9 @@ public class Posts
 	{
 		postMap.put(post.getPostID(), post);
 	}
-	public PostModel getComment(int ID)
-	{
-		return (PostModel) postMap.get(ID);
-	}
+	public PostModel getPostByID(int ID) {
+        return (PostModel) postMap.get(ID);
+    }
 	public void RemoveComment(int ID)
 	{
 		postMap.remove(ID);
