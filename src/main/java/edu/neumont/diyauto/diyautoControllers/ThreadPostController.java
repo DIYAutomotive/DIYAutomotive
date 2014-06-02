@@ -29,7 +29,7 @@ public class ThreadPostController {
 			thread.setDescription(request.getParameter("description").toString());
 		}
 
-        threads.AddPost(thread);
+        threads.AddThread(thread);
 
 		ModelAndView MAV = new ModelAndView(thread, "/threads/" + ID);
 		return MAV;

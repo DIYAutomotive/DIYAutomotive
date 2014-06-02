@@ -7,29 +7,29 @@ import java.util.Set;
 public class Threads 
 {
 	
-	private Set<ThreadModel> ThreadMap;
+	private Set<ThreadModel> threadMap;
 
     public Threads()
 	{
-		ThreadMap = new HashSet<ThreadModel>();
+		threadMap = new HashSet<ThreadModel>();
 	}
 
     public Set<ThreadModel> getAll()
     {
 
-       return ThreadMap;
+       return threadMap;
     }
 
-	public void AddPost(ThreadModel thread)
+	public void AddThread(ThreadModel thread)
 	{
-        ThreadMap.add(thread);
+        threadMap.add(thread);
 
 
 	}
 
 	public ThreadModel getThread(int ID)
 	{
-        for(ThreadModel thread : ThreadMap) {
+        for(ThreadModel thread : threadMap) {
             if(thread.getThreadID() == ID) {
                 return thread;
             }
@@ -40,6 +40,6 @@ public class Threads
 
 	public void RemoveComment(int ID)
 	{
-		ThreadMap.remove(ID);
+		threadMap.remove(ID);
 	}
 }
