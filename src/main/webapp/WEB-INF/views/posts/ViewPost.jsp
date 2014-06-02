@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +10,7 @@
         <h1>${Model.title}</h1>
         <hr>
         <span><p>${Model.description}</p></span>
-        <c:forEach var="comment" items="${Model.comments}" >
+        <c:forEach var="comment" items="${Model.comments.commentsList}" >
             <span>
                 <p>
                   ${comment.comment}<br/>
@@ -21,7 +19,7 @@
             </span>
         </c:forEach>
         <form method="post">
-            <input />
+            Add Comment: <input name="comment"/>
             <input type="submit"/>
         </form>
 

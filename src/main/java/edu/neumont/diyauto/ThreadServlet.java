@@ -4,6 +4,7 @@ import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.ThreadModel;
 import edu.neumont.diyauto.Models.Threads;
 import edu.neumont.diyauto.diyautoControllers.PostGetController;
+import edu.neumont.diyauto.diyautoControllers.PostPostController;
 import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
 import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
 
@@ -111,14 +112,20 @@ public class ThreadServlet extends HttpServlet {
     public ModelAndView PostURIParser(HttpServletRequest request, HttpServletResponse response)
     {
         ThreadPostController tpc = new ThreadPostController(request, response);
+        PostPostController ppc = new PostPostController(request, response);
         String URI = request.getRequestURI();
         ModelAndView MAV = null;
         Matcher match = this.P.matcher(URI);//threads
         Matcher match2 = this.P2.matcher(URI);//create
         Matcher match3 = this.P3.matcher(URI);//thread by name
         Matcher match4 = this.P4.matcher(URI);//thread by ID
-
-        if(match2.find())
+        Matcher match8 = this.P8.matcher(URI);
+        if(match8.find())
+        {
+            int ID = Integer.parseInt(match8.group(2));
+            MAV = ppc.createPost(ID);
+        }
+        else if(match2.find())
         {
             MAV = tpc.createThread();
         }
