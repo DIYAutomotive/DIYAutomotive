@@ -23,6 +23,7 @@ public class Posts
 	{
 		postMap.remove(ID);
 	}
+
 	
 	
 }
