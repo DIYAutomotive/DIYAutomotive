@@ -2,7 +2,6 @@ package edu.neumont.diyauto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Results implements DbContext {
 	// map with keyword to a list of potential problems
@@ -62,6 +61,11 @@ public class Results implements DbContext {
 		ArrayList<String> keys = new ArrayList<String>(results.keySet());
 		
 		return keys;
+	}
+
+	@Override
+	public HashMap<String, ArrayList<Result>> getMap() {
+		return results;
 	}
 	
 }
