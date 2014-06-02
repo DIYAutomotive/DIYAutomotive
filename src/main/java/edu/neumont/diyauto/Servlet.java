@@ -8,15 +8,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
+import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
 
-@WebServlet("/test")
+@WebServlet("/test/*")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DbContext context = ServiceLoader.context;
     
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
 	}

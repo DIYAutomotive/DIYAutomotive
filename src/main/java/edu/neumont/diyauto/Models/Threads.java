@@ -1,25 +1,45 @@
 package edu.neumont.diyauto.Models;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Threads 
 {
 	
-	HashMap<Integer, ThreadModel> ThreadMap;
-	public Threads()
+	private Set<ThreadModel> threadMap;
+
+    public Threads()
 	{
-		ThreadMap = new HashMap<Integer, ThreadModel>();
+		threadMap = new HashSet<ThreadModel>();
 	}
-	public void AddPost(ThreadModel thread)
+
+    public Set<ThreadModel> getAll()
+    {
+
+       return threadMap;
+    }
+
+	public void AddThread(ThreadModel thread)
 	{
-		ThreadMap.put(thread.getThreadID(), thread);
+        threadMap.add(thread);
+
+
 	}
+
 	public ThreadModel getThread(int ID)
 	{
-		return (ThreadModel) ThreadMap.get(ID);
+        for(ThreadModel thread : threadMap) {
+            if(thread.getThreadID() == ID) {
+                return thread;
+            }
+        }
+
+		return null;
 	}
+
 	public void RemoveComment(int ID)
 	{
-		ThreadMap.remove(ID);
+		threadMap.remove(ID);
 	}
 }

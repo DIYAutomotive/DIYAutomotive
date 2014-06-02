@@ -17,6 +17,8 @@ public class ServiceLoader implements ServletContextListener
 	public void contextInitialized(ServletContextEvent arg0) {
 		context = new Results();
 		threadID = 0001;
+        threads = new Threads();
+
 		
 		Result r1 = new Result("brake", "Common brake problems are often caused by not replacing brake pads when needed or having warped rotors. Brake pads are roughly a $30 fix and will keep from warping your rotors.");
 		Result r2 = new Result("brake", "Warped rotors can be either shaved down so that they are smooth again or replaced for roughly $80.");

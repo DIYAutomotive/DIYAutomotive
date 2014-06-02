@@ -2,7 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     /*font-family: "Century Gothic", Verdana, Arial, sans-serif;*/
-    font-family: sans-serif;
+    font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;;
+    font-size: 20px;
 
 }
 
@@ -10,6 +11,43 @@ table th {
     padding: 5px 5px 5px 5px;
     border: 1px solid #666666;
 
+}
+
+table {
+    border: 1px solid #666666;
+}
+
+table
+td {
+    min-width: 100px;
+    min-height: 100px;
+    margin-right: 0px;
+
+}
+
+tr, td {
+
+    border-bottom: 1px solid #666666;
+}
+
+input {
+    font-size: 18px;
+}
+
+input:not([type=checkbox]) {
+    border:1px solid;
+    border-radius:4px;
+    font-size: 25px;
+    width: 1000;
+}
+
+span {
+    display: inline;
+    font-size: 40px;
+}
+
+.clearboth {
+    clear:both;
 }
 
 
@@ -20,14 +58,33 @@ table th {
 }
 
 #header {
-    height: 75px;
+    height: 100px;
     display: flex;
+}
+
+#loginInfo {
+    float: right;
+    padding-right: 40px;
+    padding-top: 20px;
+}
+
+#loginInfo a{
+    border: 2px solid;
+    background-image: linear-gradient(#f2f5f6 0%,#E5E6E7 37%,#CBCCCD 100%);
+    color: #000000;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#loginInfo a:hover{
+    background: black;
+    color: whitesmoke;
 }
 
 #logo {
     color: #ffffff;
-    height: 75px;
-    width: 300px;
+    height: 100px;
+    width: 700px;
     padding-left: 10px;
     min-width: 300px;
     background-image: linear-gradient(#444, #111);
@@ -36,12 +93,12 @@ table th {
 }
 
 .logo {
-    height: 75px;
+    height: 100px;
     width: 300px;
 }
 
 #headerend {
-    height: 75px;
+    height: 100px;
     background-image: linear-gradient(#444, #111);
     width: 100%;
     float: left;

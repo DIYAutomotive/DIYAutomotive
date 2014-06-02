@@ -2,14 +2,14 @@ package edu.neumont.diyauto.Models;
 
 public class CommentModel 
 {
-	int ID;
-	int userID;
-	String comment = "";
+	private int ID;
+	private UserModel user;
+	private String comment = "";
 	
-	public CommentModel(int ID, int userID, String comment)
+	public CommentModel(int ID, UserModel user, String comment)
 	{
 		this.ID = ID;
-		this.userID = userID;
+		this.user = user;
 		this.comment = comment;
 	}
 	
@@ -22,8 +22,8 @@ public class CommentModel
 	public int getID() {
 		return ID;
 	}
-	public int getUserID() {
-		return userID;
+	public UserModel getUser() {
+		return user;
 	}
 	
 }
