@@ -120,7 +120,14 @@ public class ThreadServlet extends HttpServlet {
         Matcher match3 = this.P3.matcher(URI);//thread by name
         Matcher match4 = this.P4.matcher(URI);//thread by ID
         Matcher match8 = this.P8.matcher(URI);
-        if(match8.find())
+        Matcher match7 = this.P7.matcher(URI);
+        if(match7.find())
+        {
+            int threadID = Integer.parseInt(match7.group(2));
+            int postID = Integer.parseInt(match7.group(4));
+            MAV = ppc.addComment(threadID, postID);
+        }
+        else if(match8.find())
         {
             int ID = Integer.parseInt(match8.group(2));
             MAV = ppc.createPost(ID);

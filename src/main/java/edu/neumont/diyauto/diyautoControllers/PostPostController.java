@@ -1,9 +1,6 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import edu.neumont.diyauto.Models.ModelAndView;
-import edu.neumont.diyauto.Models.PostModel;
-import edu.neumont.diyauto.Models.ThreadModel;
-import edu.neumont.diyauto.Models.Threads;
+import edu.neumont.diyauto.Models.*;
 import edu.neumont.diyauto.ServiceLoader;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +28,16 @@ public class PostPostController
         thread.getPosts().AddPost(post);
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + ID);
 
+        return MAV;
+    }
+    public ModelAndView addComment(int threadID, int postID)
+    {
+        ThreadModel thread = threads.getThread(threadID);
+        PostModel post = thread.getPosts().getPostByID(postID);
+        String comment = request.getParameter("comment");
+        CommentModel Comment = new CommentModel(0,null,comment);
+        threads.getThread(threadID).getPosts().getPostByID(postID).getComments().AddComment(Comment);
+        ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + postID);
         return MAV;
     }
 }
