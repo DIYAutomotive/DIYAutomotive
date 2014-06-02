@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -11,6 +11,12 @@
         <h1>New Post</h1>
         <hr>
         <form method="post">
+            Thread:
+            <select name="thread">
+                <c:forEach var="thread" items="${Model}">
+                    <option value="${thread.threadID}">${thread.name}</option>
+                </c:forEach>
+            </select><br/>
             Post Creator: <input type="text" name="user"/><br/>
             Title: <input type="text" name="title"/><br/>
             Post Body:<br/> <textarea cols="30" rows="7" name="postBody"></textarea><br/>

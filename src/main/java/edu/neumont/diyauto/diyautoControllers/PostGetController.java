@@ -22,14 +22,14 @@ public class PostGetController
 
     public ModelAndView createPost()
     {
-        ModelAndView MAV = new ModelAndView(null, "/Web-INF/views/posts/createPost.jsp");
+        ModelAndView MAV = new ModelAndView(null, "/WEB-INF/views/posts/CreatePost.jsp");
         return MAV;
     }
     public ModelAndView viewPost(int threadID, int postID)
     {
        ThreadModel thread = threads.getThread(threadID);
        PostModel post = thread.getPosts().getPostByID(postID);
-        ModelAndView MAV = new ModelAndView(post, "/Web-INF/views/posts/viewPost.jsp");
+        ModelAndView MAV = new ModelAndView(post, "/WEB-INF/views/posts/ViewPost.jsp");
         return MAV;
     }
 }

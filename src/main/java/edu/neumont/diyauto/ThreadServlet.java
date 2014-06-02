@@ -63,22 +63,21 @@ public class ThreadServlet extends HttpServlet {
         Matcher match8 = this.P8.matcher(URI);
         //This needs to be fixed you are handling and integer but
         //according to your pattern it should say all so that does not parse
-        if(match4.find())
-        {
-            int ID = Integer.parseInt(match4.group(2));
-            MAV = threadGet.getThread(ID);
-        }else if(match7.find())
+        if(match7.find())
         {
             int threadID = Integer.parseInt(match7.group(2));
             int postID = Integer.parseInt(match7.group(4));
             MAV = postGet.viewPost(threadID, postID);
         }
+
         else if(match8.find())
         {
             MAV = postGet.createPost();
-        }
-
-        else if(match5.find())
+        } else if(match4.find())
+        {
+            int ID = Integer.parseInt(match4.group(2));
+            MAV = threadGet.getThread(ID);
+        }else if(match5.find())
         {
             MAV = threadGet.getAll();
         }
