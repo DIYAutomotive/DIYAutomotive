@@ -1,18 +1,34 @@
 package edu.neumont.diyauto.Models;
+import javax.persistence.*;
 
+@Entity
+@Table(name="Cars")
 public class CarModel 
 {
-	
-	private int ID;
+    @Id
+    @Column(name="idCars")
+    @SequenceGenerator(name="account_seq", sequenceName="account_seq", initialValue=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="account_seq")
+	private int CarID;
+
+    @Column(name = "UserID", nullable = false)
 	private int UserID;
-	private int Year;
-	private String Make;
+
+    @Column(name = "Year", nullable = false)
+    private int Year;
+
+    @Column(name = "MakeID", nullable = false)
+    private String Make;
+
+    @Column(name = "ModelID", nullable = false)
 	private String Model;
+
+    @Column(name = "SubModelID", nullable = false)
 	private String SubModel;
 	
-	public CarModel(int ID, int UserID, int year, String Make, String Model, String SubModel)
+	public CarModel(int CarID, int UserID, int year, String Make, String Model, String SubModel)
 	{
-		this.ID = ID;
+		this.CarID = CarID;
 		this.UserID = UserID;
 		this.Year = year;
 		this.Make = Make;
@@ -24,7 +40,7 @@ public class CarModel
 		return UserID;
 	}
 	public long getID() {
-		return ID;
+		return CarID;
 	}
 	public int getYear() {
 		return Year;
