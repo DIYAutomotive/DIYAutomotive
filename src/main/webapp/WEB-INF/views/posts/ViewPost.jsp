@@ -19,7 +19,7 @@
             </span>
         </c:forEach>
         <form method="post">
-            Add Comment: <input name="comment"/>h
+            Add Comment: <input name="comment"/>
             <input type="submit"/>
         </form>
 
