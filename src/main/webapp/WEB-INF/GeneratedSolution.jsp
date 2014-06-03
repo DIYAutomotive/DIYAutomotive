@@ -10,7 +10,6 @@
     <jsp:body>
         <h1>Our $0.02</h1>
         
-        
         <c:forEach items="${list}" var="current">
           <c:out value="${current.solution}" /><br>
 	    </c:forEach>

@@ -23,15 +23,20 @@ public class PostModel
     private Comments comments;
 
     @Column(name="Title",nullable = false)
-    private String Title;
+    private String title;
 
-    public PostModel(int PostID, int UserID, String Description)
+	public PostModel(String title, int PostID, int UserID, String Description)
 	{
 		this.PostID = PostID;
 		this.UserID = UserID;
 		this.Description = Description;
+        this.title = title;
 		comments = new Comments();
 	}
+
+    public String getTitle() {
+        return title;
+    }
 	public String getDescription() {
 		return Description;
 	}

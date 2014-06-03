@@ -1,28 +1,37 @@
 package edu.neumont.diyauto.Models;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class Comments 
 {
-	private HashMap<Integer, CommentModel> commentsList;
+	private HashSet<CommentModel> commentsList;
 	public Comments()
 	{
-		commentsList = new HashMap();
+		commentsList = new HashSet<>();
 	}	
-	public HashMap getCommentsList() {
+	public HashSet getCommentsList() {
 		return commentsList;
 	}	
 	public void AddComment(CommentModel comment)
 	{
-		commentsList.put(comment.getID(), comment);
+		commentsList.add(comment);
 	}
 	public CommentModel getComment(int ID)
 	{
-		return (CommentModel) commentsList.get(ID);
+        CommentModel comment = null;
+        for(CommentModel model: commentsList)
+        {
+            if(model.getID() == ID)
+            {
+                comment = model;
+                break;
+            }
+        }
+		return comment;
 	}
-	public void RemoveComment(int ID)
+	public void RemoveComment(CommentModel comment)
 	{
-		commentsList.remove(ID);
+		commentsList.remove(comment);
 	}
 	
 	

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/default_style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/default_style.css" />
     <title>Item</title>
 </head>
 <body>
