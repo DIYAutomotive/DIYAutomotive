@@ -18,10 +18,10 @@ public class CommentModel
     @Column(name="Comment", nullable = false)
 	String comment = "";
 
-	private UserModel user;
+	private Account user;
 
 	
-	public CommentModel(int ID, UserModel user, String comment)
+	public CommentModel(int ID, Account user, String comment)
 	{
 		this.ID = ID;
 		this.user = user;
@@ -37,7 +37,7 @@ public class CommentModel
 	public int getID() {
 		return ID;
 	}
-	public UserModel getUser() {
+	public Account getUser() {
 		return user;
 	}
 	
