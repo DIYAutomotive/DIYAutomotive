@@ -4,9 +4,6 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
     <persistence-unit name="DIYAutomotive">
-        <provider>
-            org.hibernate.ejb.HibernatePersistence
-        </provider>
         <class>edu.neumont.diyauto.Models.CarModel</class>
         <class>edu.neumont.diyauto.Models.CommentModel</class>
         <class>edu.neumont.diyauto.Models.MakeModel</class>
@@ -15,7 +12,8 @@
         <class>edu.neumont.diyauto.Models.SubModel</class>
         <class>edu.neumont.diyauto.Models.ThreadModel</class>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mysqldb"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
         </properties>
     </persistence-unit>
