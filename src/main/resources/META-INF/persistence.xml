@@ -15,12 +15,8 @@
         <class>edu.neumont.diyauto.Models.SubModel</class>
         <class>edu.neumont.diyauto.Models.ThreadModel</class>
         <properties>
-            <property name="openjpa.ConnectionURL"          value="jdbc:derby://localhost:1527/D:\OpenJPA\Derby\testdb;create=true"/>
-            <property name="openjpa.ConnectionDriverName"
-                      value="org.apache.derby.jdbc.ClientDriver"/>
-            <property name="openjpa.ConnectionUserName" value="admin"/>
-            <property name="openjpa.ConnectionPassword" value="admin"/>
-            <property name="openjpa.Log" value="SQL=TRACE"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
         </properties>
     </persistence-unit>
 </persistence>
