@@ -13,7 +13,7 @@ public class ThreadsModel {
     private String name;
     private String description;
     private int postId;
-    private PostModel postByPostId;
+    private Collection<PostModel> postByPostId;
 
     @Id
     @Column(name = "idThreads")
@@ -79,14 +79,12 @@ public class ThreadsModel {
         return result;
     }
 
-    @OneToMany
-    @JoinColumn(name = "postId", referencedColumnName = "idPost", nullable = false)
-    public PostModel getPostByPostId() {
+    @OneToMany(mappedBy = "threadsesByIdPost")
+    public Collection<PostModel> getPostByPostId() {
         return postByPostId;
     }
 
-    public void setPostByPostId(PostModel postByPostId) {
+    public void setPostByPostId(Collection<PostModel> postByPostId) {
         this.postByPostId = postByPostId;
     }
-
 }
