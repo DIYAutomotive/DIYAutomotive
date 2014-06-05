@@ -1,7 +1,6 @@
 package edu.neumont.diyauto.Models;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
  * Created by jjensen on 6/5/14.
@@ -13,7 +12,7 @@ public class CommentModel {
     private String comment;
     private int userId;
     private AccountModel accountByUserId;
-    private Collection<PostModel> postsByIdComment;
+    private PostModel postsByIdComment;
 
     @Id
     @Column(name = "idComment")
@@ -77,12 +76,13 @@ public class CommentModel {
         this.accountByUserId = accountByUserId;
     }
 
-    @OneToMany(mappedBy = "commentByCommentId")
-    public Collection<PostModel> getPostsByIdComment() {
+    @ManyToOne
+    @JoinColumn(name = "idComment", referencedColumnName = "CommentID", nullable = false)
+    public PostModel getPostsByIdComment() {
         return postsByIdComment;
     }
 
-    public void setPostsByIdComment(Collection<PostModel> postsByIdComment) {
+    public void setPostsByIdComment(PostModel postsByIdComment) {
         this.postsByIdComment = postsByIdComment;
     }
 }

@@ -15,8 +15,8 @@ public class PostModel {
     private int commentId;
     private String title;
     private AccountModel accountByUserId;
-    private CommentModel commentByCommentId;
-    private Collection<ThreadsModel> threadsesByIdPost;
+    private Collection<CommentModel> commentByCommentId;
+    private ThreadsModel threadsesByIdPost;
 
     @Id
     @Column(name = "idPost")
@@ -105,22 +105,22 @@ public class PostModel {
         this.accountByUserId = accountByUserId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "CommentID", referencedColumnName = "idComment", nullable = false)
-    public CommentModel getCommentByCommentId() {
+    @OneToMany(mappedBy = "postsByIdComment")
+    public Collection<CommentModel> getCommentByCommentId() {
         return commentByCommentId;
     }
 
-    public void setCommentByCommentId(CommentModel commentByCommentId) {
+    public void setCommentByCommentId(Collection<CommentModel> commentByCommentId) {
         this.commentByCommentId = commentByCommentId;
     }
 
-    @OneToMany(mappedBy = "postByPostId")
-    public Collection<ThreadsModel> getThreadsesByIdPost() {
+    @ManyToOne
+    @JoinColumn(name = "idPost", referencedColumnName = "postId", nullable = false)
+    public ThreadsModel getThreadsesByIdPost() {
         return threadsesByIdPost;
     }
 
-    public void setThreadsesByIdPost(Collection<ThreadsModel> threadsesByIdPost) {
+    public void setThreadsesByIdPost(ThreadsModel threadsesByIdPost) {
         this.threadsesByIdPost = threadsesByIdPost;
     }
 }

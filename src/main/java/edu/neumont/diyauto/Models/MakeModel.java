@@ -1,6 +1,7 @@
 package edu.neumont.diyauto.Models;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by jjensen on 6/5/14.
@@ -10,6 +11,7 @@ import javax.persistence.*;
 public class MakeModel {
     private int idMake;
     private String make;
+    private Collection<CarsModel> carsesByIdMake;
 
     @Id
     @Column(name = "idMake")
@@ -49,5 +51,14 @@ public class MakeModel {
         int result = idMake;
         result = 31 * result + (make != null ? make.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "makeByMakeId")
+    public Collection<CarsModel> getCarsesByIdMake() {
+        return carsesByIdMake;
+    }
+
+    public void setCarsesByIdMake(Collection<CarsModel> carsesByIdMake) {
+        this.carsesByIdMake = carsesByIdMake;
     }
 }
