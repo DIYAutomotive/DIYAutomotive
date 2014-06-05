@@ -1,7 +1,6 @@
 package edu.neumont.diyauto;
 
 import edu.neumont.diyauto.Models.ModelAndView;
-import edu.neumont.diyauto.Models.ThreadModel;
 import edu.neumont.diyauto.Models.Threads;
 import edu.neumont.diyauto.diyautoControllers.PostGetController;
 import edu.neumont.diyauto.diyautoControllers.PostPostController;
@@ -15,8 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,45 +1,88 @@
 package edu.neumont.diyauto.Models;
 
 import javax.persistence.*;
+import java.util.Collection;
 
+/**
+ * Created by jjensen on 6/5/14.
+ */
 @Entity
-@Table(name="Comment")
-public class CommentModel 
-{
+@Table(name = "Comment", schema = "", catalog = "diyauto")
+public class CommentModel {
+    private int idComment;
+    private String comment;
+    private int userId;
+    private AccountModel accountByUserId;
+    private Collection<PostModel> postsByIdComment;
+
     @Id
-    @Column(name="idComment")
-    @SequenceGenerator(name="account_seq", sequenceName="account_seq", initialValue=1)
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="account_seq")
-	int ID;
+    @Column(name = "idComment")
+    public int getIdComment() {
+        return idComment;
+    }
 
-    @Column(name="USerID", nullable = false)
-	int userID;
+    public void setIdComment(int idComment) {
+        this.idComment = idComment;
+    }
 
-    @Column(name="Comment", nullable = false)
-	String comment = "";
+    @Basic
+    @Column(name = "Comment")
+    public String getComment() {
+        return comment;
+    }
 
-    @Column(name="UserID")
-	private Account user;
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
-	
-	public CommentModel(int ID, Account user, String comment)
-	{
-		this.ID = ID;
-		this.user = user;
-		this.comment = comment;
-	}
-	
-	public String getComment() {
-		return comment;
-	}
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-	public int getID() {
-		return ID;
-	}
-	public Account getUser() {
-		return user;
-	}
-	
+    @Basic
+    @Column(name = "UserID")
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CommentModel that = (CommentModel) o;
+
+        if (idComment != that.idComment) return false;
+        if (userId != that.userId) return false;
+        if (comment != null ? !comment.equals(that.comment) : that.comment != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = idComment;
+        result = 31 * result + (comment != null ? comment.hashCode() : 0);
+        result = 31 * result + userId;
+        return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false)
+    public AccountModel getAccountByUserId() {
+        return accountByUserId;
+    }
+
+    public void setAccountByUserId(AccountModel accountByUserId) {
+        this.accountByUserId = accountByUserId;
+    }
+
+    @OneToMany(mappedBy = "commentByCommentId")
+    public Collection<PostModel> getPostsByIdComment() {
+        return postsByIdComment;
+    }
+
+    public void setPostsByIdComment(Collection<PostModel> postsByIdComment) {
+        this.postsByIdComment = postsByIdComment;
+    }
 }

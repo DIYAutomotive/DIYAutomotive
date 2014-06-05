@@ -5,7 +5,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import edu.neumont.diyauto.Models.Account;
+
 import edu.neumont.diyauto.Models.Role;
 
 @Stateless

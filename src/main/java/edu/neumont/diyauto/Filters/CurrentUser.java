@@ -1,7 +1,5 @@
 package edu.neumont.diyauto.Filters;
 
-import edu.neumont.diyauto.Models.Account;
-
 
 /** An example of the ThreadLocal pattern.
  * 

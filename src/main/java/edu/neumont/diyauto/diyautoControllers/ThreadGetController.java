@@ -5,10 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.neumont.diyauto.ServiceLoader;
 import edu.neumont.diyauto.Models.ModelAndView;
-import edu.neumont.diyauto.Models.ThreadModel;
 import edu.neumont.diyauto.Models.Threads;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class ThreadGetController 

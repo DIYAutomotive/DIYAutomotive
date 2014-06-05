@@ -1,8 +1,6 @@
 package edu.neumont.diyauto.diyautoControllers;
 
 import edu.neumont.diyauto.Models.ModelAndView;
-import edu.neumont.diyauto.Models.PostModel;
-import edu.neumont.diyauto.Models.ThreadModel;
 import edu.neumont.diyauto.Models.Threads;
 import edu.neumont.diyauto.ServiceLoader;
 
