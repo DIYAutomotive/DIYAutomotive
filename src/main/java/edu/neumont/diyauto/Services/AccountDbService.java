@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import edu.neumont.diyauto.Models.AccountModel;
 import edu.neumont.diyauto.Models.Role;
 
 @Stateless
@@ -14,17 +15,17 @@ import edu.neumont.diyauto.Models.Role;
 public class AccountDbService implements AccountService {
 	@PersistenceContext(name="university")
 	private EntityManager em;
-	
-	public Account getAccountByUsername(String username) {
-		return (Account)em.createNamedQuery("byUsername")
+
+	public AccountModel getAccountByUsername(String username) {
+		return (AccountModel)em.createNamedQuery("byUsername")
 				.setParameter("username", username).getSingleResult();
 	}
 	
-	public Account getAccount(Long id) {
-		return em.find(Account.class, id);
+	public AccountModel getAccount(Long id) {
+		return em.find(AccountModel.class, id);
 	}
 	
-	public void updateAccount(Account account) {
+	public void updateAccount(AccountModel account) {
 		// here is where we would check the password, etc.
 
 		// add the appropriate role

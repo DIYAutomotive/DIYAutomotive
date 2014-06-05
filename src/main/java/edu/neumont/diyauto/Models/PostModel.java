@@ -16,7 +16,7 @@ public class PostModel {
     private String title;
     private AccountModel accountByUserId;
     private CommentModel commentByCommentId;
-    private Collection<ThreadsModel> threadsesByIdPost;
+
 
     @Id
     @Column(name = "idPost")
@@ -115,12 +115,5 @@ public class PostModel {
         this.commentByCommentId = commentByCommentId;
     }
 
-    @OneToMany(mappedBy = "postByPostId")
-    public Collection<ThreadsModel> getThreadsesByIdPost() {
-        return threadsesByIdPost;
-    }
 
-    public void setThreadsesByIdPost(Collection<ThreadsModel> threadsesByIdPost) {
-        this.threadsesByIdPost = threadsesByIdPost;
-    }
 }

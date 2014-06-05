@@ -1,6 +1,7 @@
 package edu.neumont.diyauto.Models;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by jjensen on 6/5/14.
@@ -78,7 +79,7 @@ public class ThreadsModel {
         return result;
     }
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "postId", referencedColumnName = "idPost", nullable = false)
     public PostModel getPostByPostId() {
         return postByPostId;
@@ -87,4 +88,5 @@ public class ThreadsModel {
     public void setPostByPostId(PostModel postByPostId) {
         this.postByPostId = postByPostId;
     }
+
 }

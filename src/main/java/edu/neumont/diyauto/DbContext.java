@@ -3,7 +3,8 @@ package edu.neumont.diyauto;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public interface DbContext {
+public interface DbContext
+{
 	public Result getFirstResult(String keyword);
 	public void addResult(String keyword, Result r);
 	public void deleteResult(String keyword, String text);
