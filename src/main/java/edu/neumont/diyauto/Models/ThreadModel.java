@@ -1,6 +1,8 @@
 package edu.neumont.diyauto.Models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="Threads")
@@ -17,7 +19,7 @@ public class ThreadModel
 
     @Column(name="postId",nullable = false)
     @OneToMany
-	private Posts posts;
+	private Set<PostModel> posts;
 
     @Column(name="Description",nullable = false)
 	private String Description;
@@ -26,9 +28,13 @@ public class ThreadModel
 	{
 		this.ThreadID = ThreadID;
 		this.Name = Name;
-		this.posts = new Posts();
+		this.posts = new HashSet<>();
 	}
-	public String getName() {
+
+    public ThreadModel() {
+    }
+
+    public String getName() {
 		return Name;
 	}
 	public void setName(String name) {
@@ -37,7 +43,7 @@ public class ThreadModel
 	public int getThreadID() {
 		return ThreadID;
 	}
-	public Posts getPosts() {
+	public Set<PostModel> getPosts() {
 		return posts;
 	}
 	public String getDescription() {
@@ -46,5 +52,17 @@ public class ThreadModel
 	public void setDescription(String description) {
 		Description = description;
 	}
+    public void addPost(PostModel post) {
+        posts.add(post);
+    }
+    public PostModel getPostById(int id){
+        for(PostModel post : posts) {
+            if(post.getPostID() == id) {
+                return post;
+            }
+        }
+
+        return null;
+    }
 	
 }

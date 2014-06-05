@@ -28,7 +28,7 @@ public class PostGetController
     public ModelAndView viewPost(int threadID, int postID)
     {
        ThreadModel thread = threads.getThread(threadID);
-       PostModel post = thread.getPosts().getPostByID(postID);
+       PostModel post = thread.getPostById(postID);
         ModelAndView MAV = new ModelAndView(post, "/WEB-INF/views/posts/ViewPost.jsp");
         return MAV;
     }

@@ -1,6 +1,11 @@
 package edu.neumont.diyauto.Models;
 
+import javafx.geometry.Pos;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name="Post")
 public class PostModel
@@ -20,10 +25,14 @@ public class PostModel
 
     @OneToMany
     @Column(name="CommentID", nullable = false)
-    private Comments comments;
+    private Set<CommentModel> comments;
 
     @Column(name="Title",nullable = false)
     private String title;
+
+    public PostModel() {
+
+    }
 
 	public PostModel(String title, int PostID, int UserID, String Description)
 	{
@@ -31,11 +40,14 @@ public class PostModel
 		this.UserID = UserID;
 		this.Description = Description;
         this.title = title;
-		comments = new Comments();
+		comments = new HashSet<>();
 	}
 
     public String getTitle() {
         return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
 	public String getDescription() {
 		return Description;
@@ -49,8 +61,11 @@ public class PostModel
 	public int getUserID() {
 		return UserID;
 	}
-	public Comments getComments() {
+	public Set<CommentModel> getComments() {
 		return comments;
 	}
+    public void addComment(CommentModel comment) {
+        comments.add(comment);
+    }
 	
 }

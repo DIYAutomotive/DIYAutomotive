@@ -1,16 +1,8 @@
 package edu.neumont.diyauto.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="AccountRole")
@@ -21,9 +13,9 @@ public class AccountRole {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="account_role_seq")
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="UserId")
-	private int userId;
+	@OneToMany
+	//@JoinColumn(name="UserId")
+	private Set<Account> accounts;
 	
 	@Column(name="Role")
 	@Enumerated(EnumType.STRING)
@@ -36,7 +28,11 @@ public class AccountRole {
 	public void setId(Long id) {
 		this.id = id;
 	}
+    public AccountRole() {
+        accounts = new HashSet<>();
+    }
 
+/*
 	public int getUserId() {
 		return userId;
 	}
@@ -44,6 +40,7 @@ public class AccountRole {
 	public void setUserId(int id) {
 		this.userId = id;
 	}
+*/
 
 	public Role getRole() {
 		return role;

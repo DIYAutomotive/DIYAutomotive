@@ -18,6 +18,7 @@ public class CommentModel
     @Column(name="Comment", nullable = false)
 	String comment = "";
 
+    @Column(name="UserID")
 	private Account user;
 
 	

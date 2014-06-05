@@ -25,7 +25,7 @@ public class PostPostController
         //String tags = request.getParameter()
         PostModel post = new PostModel(title,ID, 0, body);
         ThreadModel thread = threads.getThread(threadID);
-        thread.getPosts().AddPost(post);
+        thread.addPost(post);
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + ID);
 
         return MAV;
@@ -33,10 +33,10 @@ public class PostPostController
     public ModelAndView addComment(int threadID, int postID)
     {
         ThreadModel thread = threads.getThread(threadID);
-        PostModel post = thread.getPosts().getPostByID(postID);
+        PostModel post = thread.getPostById(postID);
         String comment = request.getParameter("comment");
         CommentModel Comment = new CommentModel(0,null,comment);
-        threads.getThread(threadID).getPosts().getPostByID(postID).getComments().AddComment(Comment);
+        threads.getThread(threadID).getPostById(postID).addComment(Comment);
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + postID);
         return MAV;
     }
