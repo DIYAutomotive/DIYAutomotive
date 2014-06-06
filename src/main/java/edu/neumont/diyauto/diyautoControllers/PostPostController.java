@@ -1,15 +1,28 @@
 package edu.neumont.diyauto.diyautoControllers;
 
+import edu.neumont.diyauto.Framework.ModelAndView;
+import edu.neumont.diyauto.Models.CommentModel;
+import edu.neumont.diyauto.Models.PostModel;
+import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.ServiceLoader;
+import edu.neumont.diyauto.Services.PostsService;
+import edu.neumont.diyauto.Services.ThreadsService;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Stateless
+@LocalBean
 public class PostPostController
 {
+    @Inject ThreadsService threadsService;
+    @Inject PostsService postsService;
     HttpServletRequest request;
     HttpServletResponse response;
-    Threads threads = ServiceLoader.threads;
+
     public PostPostController(HttpServletRequest request, HttpServletResponse response)
     {
         this.request = request;
@@ -22,20 +35,23 @@ public class PostPostController
         String title = request.getParameter("title");
         String body = request.getParameter("postBody");
         //String tags = request.getParameter()
-        PostModel post = new PostModel(title,ID, 0, body);
-        ThreadModel thread = threads.getThread(threadID);
-        thread.addPost(post);
+        PostModel post = new PostModel();
+        post.setDescription(body);
+        post.setTitle(title);
+
+        threadsService.updatePost(threadID, post);
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + ID);
 
         return MAV;
     }
     public ModelAndView addComment(int threadID, int postID)
     {
-        ThreadModel thread = threads.getThread(threadID);
-        PostModel post = thread.getPostById(postID);
+        ThreadsModel thread = threadsService.getThread(threadID);
+        PostModel post = postsService.getPost(postID);
         String comment = request.getParameter("comment");
-        CommentModel Comment = new CommentModel(0,null,comment);
-        threads.getThread(threadID).getPostById(postID).addComment(Comment);
+        CommentModel Comment = new CommentModel();
+        Comment.setComment(comment);
+        post.setCommentId(Comment.getIdComment());
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + postID);
         return MAV;
     }

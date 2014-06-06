@@ -38,17 +38,20 @@ public class ThreadsDBService implements  ThreadsService {
 
     @Override
     public void deleteThread(int ID) {
-
+        ThreadsModel thread = em.find(ThreadsModel.class, ID);
+        em.remove(thread);
     }
 
     @Override
     public void updatePost(int ID, PostModel post) {
         ThreadsModel thread = em.find(ThreadsModel.class,ID);
-        thread.
+        thread.setPostId(post.getIdPost());
+        em.persist(thread);
     }
 
     @Override
     public void deletePost(int threadID, PostModel post) {
-
+//        ThreadsModel thread = em.find(ThreadsModel.class, threadID);
+//        PostModel post = thread.getPostByPostId()
     }
 }

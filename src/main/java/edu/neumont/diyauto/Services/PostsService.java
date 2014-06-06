@@ -4,6 +4,8 @@ import edu.neumont.diyauto.Models.CommentModel;
 import edu.neumont.diyauto.Models.PostModel;
 import edu.neumont.diyauto.Models.ThreadsModel;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -11,8 +13,8 @@ import java.util.List;
  */
 public interface PostsService
 {
-    public List<PostModel> getAll(int ThreadID);
-    public ThreadsModel getPost(int threadID, int postID);
+    public Collection<PostModel> getAll(int ThreadID);
+    public PostModel getPost(int postID);
     public void deleteComment (int threadID, int PostID, int CommentID);
-    public void updateComment(int threadID, int PostID, CommentModel comment);
+    public void updateComment(int PostID, CommentModel comment);
 }

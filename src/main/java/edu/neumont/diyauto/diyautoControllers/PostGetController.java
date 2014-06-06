@@ -1,16 +1,24 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import edu.neumont.diyauto.Models.Threads;
-import edu.neumont.diyauto.ServiceLoader;
+import edu.neumont.diyauto.Framework.ModelAndView;
+import edu.neumont.diyauto.Models.PostModel;
+import edu.neumont.diyauto.Models.ThreadsModel;
+import edu.neumont.diyauto.Services.PostsService;
+import edu.neumont.diyauto.Services.ThreadsService;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@Stateless
+@LocalBean
 public class PostGetController
 {
     HttpServletRequest request;
     HttpServletResponse response;
-    Threads threads = ServiceLoader.threads;
+    @Inject ThreadsService threadsService;
+    @Inject PostsService postsService;
     public PostGetController(HttpServletRequest request, HttpServletResponse response)
     {
         this.request = request;
@@ -24,8 +32,8 @@ public class PostGetController
     }
     public ModelAndView viewPost(int threadID, int postID)
     {
-       ThreadModel thread = threads.getThread(threadID);
-       PostModel post = thread.getPostById(postID);
+       ThreadsModel thread = threadsService.getThread(threadID);
+       PostModel post = postsService.getPost(postID);
         ModelAndView MAV = new ModelAndView(post, "/WEB-INF/views/posts/ViewPost.jsp");
         return MAV;
     }
