@@ -1,6 +1,6 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import edu.neumont.diyauto.Framework.ModelAndView;
+import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.PostModel;
 import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.Services.PostsService;
@@ -19,11 +19,7 @@ public class PostGetController
     HttpServletResponse response;
     @Inject ThreadsService threadsService;
     @Inject PostsService postsService;
-    public PostGetController(HttpServletRequest request, HttpServletResponse response)
-    {
-        this.request = request;
-        this.response = response;
-    }
+
 
     public ModelAndView createPost()
     {

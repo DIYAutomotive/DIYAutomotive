@@ -4,16 +4,15 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import edu.neumont.diyauto.Framework.Controller;
-import edu.neumont.diyauto.Framework.ModelAndView;
 import edu.neumont.diyauto.Framework.UrlMapping;
+import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Services.AccountService;
 import edu.neumont.diyauto.security.PasswordEncoder;
 
 
 @Stateless
 @LocalBean
-public class AccountController implements Controller {
+public class AccountController  {
 	@Inject AccountService accountService;
 	@Inject HttpServletRequest request;
 	@Inject PasswordEncoder passwordEncoder;

@@ -1,7 +1,7 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import edu.neumont.diyauto.Framework.ModelAndView;
 import edu.neumont.diyauto.Models.CommentModel;
+import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.PostModel;
 import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.ServiceLoader;
@@ -12,7 +12,6 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Stateless
 @LocalBean
