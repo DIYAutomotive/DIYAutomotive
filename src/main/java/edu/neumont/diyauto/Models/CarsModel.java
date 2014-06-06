@@ -30,11 +30,6 @@ public class CarsModel {
         this.idCars = idCars;
     }
 
-    @Basic
-    @Column(name = "MakeID")
-    public int getMakeId() {
-        return makeId;
-    }
 
     public void setMakeId(int makeId) {
         this.makeId = makeId;
@@ -119,7 +114,7 @@ public class CarsModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "ModelID", referencedColumnName = "idModel", nullable = false)
+    @JoinColumn(name = "ModelID", insertable = false, updatable = false, referencedColumnName = "idModel", nullable = false)
     public ModelModel getModelByModelId() {
         return modelByModelId;
     }
@@ -129,7 +124,7 @@ public class CarsModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "SubModelID", referencedColumnName = "idSubModel", nullable = false)
+    @JoinColumn(name = "SubModelID", referencedColumnName = "idSubModel", nullable = false, insertable = false, updatable = false)
     public SubModelModel getSubModelBySubModelId() {
         return subModelBySubModelId;
     }
@@ -139,7 +134,7 @@ public class CarsModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false)
+    @JoinColumn(name = "UserID", referencedColumnName = "idUser", insertable = false, updatable = false)
     public AccountModel getAccountByUserId() {
         return accountByUserId;
     }

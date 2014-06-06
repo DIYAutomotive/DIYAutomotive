@@ -96,7 +96,7 @@ public class PostModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false)
+    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false , insertable = false, updatable = false)
     public AccountModel getAccountByUserId() {
         return accountByUserId;
     }
@@ -115,7 +115,7 @@ public class PostModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idPost", referencedColumnName = "postId", nullable = false)
+    @JoinColumn(name = "idPost", referencedColumnName = "postId", nullable = false, insertable = false, updatable = false)
     public ThreadsModel getThreadsesByIdPost() {
         return threadsesByIdPost;
     }

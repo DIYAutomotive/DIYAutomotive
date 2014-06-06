@@ -67,7 +67,7 @@ public class CommentModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false)
+    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false, insertable = false, updatable = false)
     public AccountModel getAccountByUserId() {
         return accountByUserId;
     }
@@ -77,7 +77,7 @@ public class CommentModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idComment", referencedColumnName = "CommentID", nullable = false)
+    @JoinColumn(name = "idComment", referencedColumnName = "CommentID", nullable = false , insertable = false, updatable = false)
     public PostModel getPostsByIdComment() {
         return postsByIdComment;
     }
