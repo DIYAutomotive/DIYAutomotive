@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.neumont.diyauto.Framework.ModelAndView;
+import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.ServiceLoader;
 import edu.neumont.diyauto.Services.ThreadsService;
@@ -14,15 +14,8 @@ import edu.neumont.diyauto.Services.ThreadsService;
 @Stateless
 @LocalBean
 public class ThreadPostController {
-	HttpServletRequest request;
-	HttpServletResponse response;
     @Inject ThreadsService threadService;
-	public ThreadPostController(HttpServletRequest request, HttpServletResponse response)
-	{
-		this.request = request;
-		this.response = response;
-	}
-
+    @Inject HttpServletRequest request;
 	public ModelAndView createThread()
 	{
         ThreadsModel thread = new ThreadsModel();

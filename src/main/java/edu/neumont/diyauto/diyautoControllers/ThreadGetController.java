@@ -3,7 +3,8 @@ package edu.neumont.diyauto.diyautoControllers;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import edu.neumont.diyauto.Framework.ModelAndView;
+
+import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.Services.ThreadsService;
 
