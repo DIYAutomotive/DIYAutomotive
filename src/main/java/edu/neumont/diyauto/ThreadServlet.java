@@ -1,6 +1,7 @@
 package edu.neumont.diyauto;
 
-import edu.neumont.diyauto.Models.Threads;
+
+import edu.neumont.diyauto.Framework.ModelAndView;
 import edu.neumont.diyauto.diyautoControllers.PostGetController;
 import edu.neumont.diyauto.diyautoControllers.PostPostController;
 import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
