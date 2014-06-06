@@ -5,19 +5,16 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 
-
 @WebListener
 public class ServiceLoader implements ServletContextListener 
 {
 	public static DbContext context;
-	public static Threads threads;
 	public static int threadID;
 	
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
 		context = new Results();
 		threadID = 0001;
-        threads = new Threads();
 
 		
 		Result r1 = new Result("brake", "Common brake problems are often caused by not replacing brake pads when needed or having warped rotors. Brake pads are roughly a $30 fix and will keep from warping your rotors.");

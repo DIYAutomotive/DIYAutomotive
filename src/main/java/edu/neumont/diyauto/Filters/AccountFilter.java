@@ -13,6 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import edu.neumont.diyauto.Models.AccountModel;
 import edu.neumont.diyauto.Services.AccountService;
 
 /**
@@ -45,7 +46,7 @@ public class AccountFilter implements Filter {
 				Principal p = req.getUserPrincipal();
 				
 				if ( p != null ) {
-					Account account = accountService.getAccountByUsername(p.getName());
+					AccountModel account = accountService.getAccountByUsername(p.getName());
 					// store it in the ThreadLocal bean
 					CurrentUser.setUser(account);
 				}

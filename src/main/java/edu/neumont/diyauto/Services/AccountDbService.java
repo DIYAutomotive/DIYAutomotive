@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 
 import edu.neumont.diyauto.Models.AccountModel;
 
-
 @Stateless
 @LocalBean
 @Local(AccountService.class)

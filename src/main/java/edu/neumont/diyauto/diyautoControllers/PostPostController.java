@@ -20,14 +20,13 @@ public class PostPostController
 {
     @Inject ThreadsService threadsService;
     @Inject PostsService postsService;
-    HttpServletRequest request;
-    HttpServletResponse response;
+    @Inject HttpServletRequest request;
 
-    public PostPostController(HttpServletRequest request, HttpServletResponse response)
-    {
-        this.request = request;
-        this.response = response;
-    }
+//    public PostPostController(HttpServletRequest request, HttpServletResponse response)
+//    {
+//        this.request = request;
+//        this.response = response;
+//    }
     public ModelAndView createPost(int threadID)
     {
         int ID = ServiceLoader.threadID++;
