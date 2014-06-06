@@ -1,6 +1,6 @@
 package edu.neumont.diyauto;
 
-import edu.neumont.diyauto.Models.Threads;
+import edu.neumont.diyauto.Framework.ModelAndView;
 import edu.neumont.diyauto.diyautoControllers.PostGetController;
 import edu.neumont.diyauto.diyautoControllers.PostPostController;
 import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
@@ -46,7 +46,7 @@ public class ThreadServlet extends HttpServlet {
     }
     public ModelAndView getURIParser(HttpServletRequest request, HttpServletResponse response)
     {
-        ThreadGetController threadGet = new ThreadGetController(request, response);
+        ThreadGetController threadGet = new ThreadGetController();
         PostGetController postGet = new PostGetController(request, response);
         String URI = request.getRequestURI();
         ModelAndView MAV = null;
@@ -108,7 +108,7 @@ public class ThreadServlet extends HttpServlet {
     public ModelAndView PostURIParser(HttpServletRequest request, HttpServletResponse response)
     {
         ThreadPostController tpc = new ThreadPostController(request, response);
-        PostPostController ppc = new PostPostController(request, response);
+        PostPostController ppc = new PostPostController();
         String URI = request.getRequestURI();
         ModelAndView MAV = null;
         Matcher match = this.P.matcher(URI);//threads
@@ -134,7 +134,7 @@ public class ThreadServlet extends HttpServlet {
         }
         else if(match4.find())
         {
-            ThreadGetController threadGet = new ThreadGetController(request,response);
+            ThreadGetController threadGet = new ThreadGetController();
             int ID = Integer.parseInt(match4.group(2));
             MAV = threadGet.getThread(ID);
         }

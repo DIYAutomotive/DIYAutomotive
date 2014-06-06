@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import edu.neumont.diyauto.Models.AccountModel;
-import edu.neumont.diyauto.Models.Role;
 
 @Stateless
 @LocalBean

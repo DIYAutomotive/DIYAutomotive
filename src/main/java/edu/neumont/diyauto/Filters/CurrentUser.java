@@ -1,6 +1,8 @@
 package edu.neumont.diyauto.Filters;
 
 
+import edu.neumont.diyauto.Models.AccountModel;
+
 /** An example of the ThreadLocal pattern.
  * 
  * This is just like any other getter/setter POJO with the exception
@@ -18,13 +20,13 @@ package edu.neumont.diyauto.Filters;
  *
  */
 public class CurrentUser {
-	private static final ThreadLocal<Account> userStorage = new ThreadLocal<Account>();
+	private static final ThreadLocal<AccountModel> userStorage = new ThreadLocal<AccountModel>();
 	
-	public static Account getUser() {
+	public static AccountModel getUser() {
 		return userStorage.get();
 	}
 	
-	public static void setUser(Account p) {
+	public static void setUser(AccountModel p) {
 		userStorage.set(p);
 	}
 }
