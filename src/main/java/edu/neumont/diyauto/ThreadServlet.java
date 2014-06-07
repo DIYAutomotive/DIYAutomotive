@@ -1,10 +1,8 @@
 package edu.neumont.diyauto;
 
-import edu.neumont.diyauto.Models.ModelAndView;
-import edu.neumont.diyauto.diyautoControllers.PostGetController;
-import edu.neumont.diyauto.diyautoControllers.PostPostController;
-import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
-import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -13,9 +11,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import edu.neumont.diyauto.Models.ModelAndView;
+import edu.neumont.diyauto.diyautoControllers.PostGetController;
+import edu.neumont.diyauto.diyautoControllers.PostPostController;
+import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
+import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
 
 /**
  * Created by jjensen on 5/28/14.
@@ -31,6 +32,12 @@ public class ThreadServlet extends HttpServlet {
     private static final Pattern P4 = Pattern.compile("(/threads/)([0-9]+)");
     private static final Pattern P7 = Pattern.compile("(/threads/)([0-9]+)(/post/)([0-9]+)");
     private static final Pattern P8 = Pattern.compile("(/threads/)([0-9]+)(/post/)(create)");
+
+    @Inject
+    ThreadPostController tpc;
+
+    @Inject
+    PostPostController ppc;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -109,8 +116,6 @@ public class ThreadServlet extends HttpServlet {
 
     public ModelAndView PostURIParser(HttpServletRequest request, HttpServletResponse response)
     {
-        ThreadPostController tpc = new ThreadPostController();
-        PostPostController ppc = new PostPostController();
         String URI = request.getRequestURI();
         ModelAndView MAV = null;
         Matcher match = this.P.matcher(URI);//threads

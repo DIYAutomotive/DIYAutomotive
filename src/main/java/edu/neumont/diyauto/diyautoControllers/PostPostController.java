@@ -1,5 +1,9 @@
 package edu.neumont.diyauto.diyautoControllers;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 import edu.neumont.diyauto.Models.CommentModel;
 import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.PostModel;
@@ -8,14 +12,7 @@ import edu.neumont.diyauto.ServiceLoader;
 import edu.neumont.diyauto.Services.PostsService;
 import edu.neumont.diyauto.Services.ThreadsService;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
-
-@Stateless
-@LocalBean
+@RequestScoped
 public class PostPostController
 {
     @Inject ThreadsService threadsService;
