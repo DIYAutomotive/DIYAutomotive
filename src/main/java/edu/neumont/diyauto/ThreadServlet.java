@@ -6,6 +6,7 @@ import edu.neumont.diyauto.diyautoControllers.PostPostController;
 import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
 import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +22,7 @@ import java.util.regex.Pattern;
  */
 @WebServlet("/threads/*")
 public class ThreadServlet extends HttpServlet {
+
     private static final Pattern P = Pattern.compile("(/threads)");
     private static final Pattern P2 = Pattern.compile("(/threads)(/create)");
     private static final Pattern P3 = Pattern.compile("(/threads/)([A-Za-z]+)");

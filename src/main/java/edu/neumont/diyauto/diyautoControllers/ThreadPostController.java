@@ -2,20 +2,22 @@ package edu.neumont.diyauto.diyautoControllers;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import edu.neumont.diyauto.Models.ModelAndView;
+import edu.neumont.diyauto.Models.Test;
 import edu.neumont.diyauto.Models.ThreadsModel;
-import edu.neumont.diyauto.ServiceLoader;
 import edu.neumont.diyauto.Services.ThreadsService;
 
 @Stateless
 @LocalBean
 public class ThreadPostController {
-    @Inject ThreadsService threadService;
+    ThreadsService threadService;
     @Inject HttpServletRequest request;
+
 	public ModelAndView createThread()
 	{
         ThreadsModel thread = new ThreadsModel();
@@ -37,4 +39,14 @@ public class ThreadPostController {
 		return MAV;
 		
 	}
+
+
+    public void setThreadService(ThreadsService threadsService) {
+        this.threadService = threadsService;
+    }
+
+
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
 }

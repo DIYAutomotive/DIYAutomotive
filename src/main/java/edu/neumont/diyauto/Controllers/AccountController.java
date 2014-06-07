@@ -3,6 +3,7 @@ package edu.neumont.diyauto.Controllers;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import edu.neumont.diyauto.Framework.UrlMapping;
 import edu.neumont.diyauto.Models.ModelAndView;
