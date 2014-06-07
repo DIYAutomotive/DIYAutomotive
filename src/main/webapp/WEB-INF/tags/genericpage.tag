@@ -1,10 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <%@tag description="Overall Page template" pageEncoding="UTF-8"%>
-<%@attribute name="header" fragment="true" %>
-<%@attribute name="footer" fragment="true" %>
 <!DOCTYPE html>
 <html>
 <head>
