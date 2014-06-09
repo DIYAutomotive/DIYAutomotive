@@ -1,29 +1,20 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import edu.neumont.diyauto.ServiceLoader;
 import edu.neumont.diyauto.Models.ModelAndView;
-import edu.neumont.diyauto.Models.ThreadModel;
-import edu.neumont.diyauto.Models.Threads;
+import edu.neumont.diyauto.Models.ThreadsModel;
+import edu.neumont.diyauto.Services.ThreadsService;
 
-import java.util.HashSet;
-import java.util.Set;
-
-public class ThreadGetController 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import java.util.Collection;
+@RequestScoped
+public class ThreadGetController
 {
-	HttpServletRequest request;
-	HttpServletResponse response;
-	Threads threads = ServiceLoader.threads;
-	public ThreadGetController(HttpServletRequest request, HttpServletResponse response) 
-	{
-		this.request = request;
-		this.response = response;
-	}
+    @Inject ThreadsService threadService;
+
     public ModelAndView getAll()
     {
-        Set<ThreadModel> allThreads = threads.getAll();
+        Collection<ThreadsModel> allThreads = threadService.getAll();
         ModelAndView MAV = new ModelAndView(allThreads,"/WEB-INF/views/threads/AllThreadsView.jsp");
         return MAV;
     }
@@ -32,15 +23,15 @@ public class ThreadGetController
 
 		ModelAndView MAV = new ModelAndView(null, "/WEB-INF/views/threads/CreateThread.jsp");
 		return MAV;
-		
+
 	}
 	public ModelAndView getThread(int ID)
 	{
-		ThreadModel thread = threads.getThread(ID);
+		ThreadsModel thread = threadService.getThread(ID);
 		ModelAndView MAV = new ModelAndView(thread, "/WEB-INF/views/threads/ThreadView.jsp");
 		return MAV;
-		
+
 	}
-	
-	
+
+
 }

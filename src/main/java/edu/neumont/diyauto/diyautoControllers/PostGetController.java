@@ -2,23 +2,21 @@ package edu.neumont.diyauto.diyautoControllers;
 
 import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.PostModel;
-import edu.neumont.diyauto.Models.ThreadModel;
-import edu.neumont.diyauto.Models.Threads;
-import edu.neumont.diyauto.ServiceLoader;
+import edu.neumont.diyauto.Models.ThreadsModel;
+import edu.neumont.diyauto.Services.PostsService;
+import edu.neumont.diyauto.Services.ThreadsService;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
+@RequestScoped
 public class PostGetController
 {
-    HttpServletRequest request;
-    HttpServletResponse response;
-    Threads threads = ServiceLoader.threads;
-    public PostGetController(HttpServletRequest request, HttpServletResponse response)
-    {
-        this.request = request;
-        this.response = response;
-    }
+    @Inject HttpServletRequest request;
+    @Inject ThreadsService threadsService;
+    @Inject PostsService postsService;
+
 
     public ModelAndView createPost()
     {
@@ -27,8 +25,8 @@ public class PostGetController
     }
     public ModelAndView viewPost(int threadID, int postID)
     {
-       ThreadModel thread = threads.getThread(threadID);
-       PostModel post = thread.getPosts().getPostByID(postID);
+       ThreadsModel thread = threadsService.getThread(threadID);
+       PostModel post = postsService.getPost(postID);
         ModelAndView MAV = new ModelAndView(post, "/WEB-INF/views/posts/ViewPost.jsp");
         return MAV;
     }

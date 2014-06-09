@@ -8,8 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import edu.neumont.diyauto.diyautoControllers.ThreadGetController;
-import edu.neumont.diyauto.diyautoControllers.ThreadPostController;
 
 @WebServlet("/test/*")
 public class Servlet extends HttpServlet {
@@ -18,7 +16,7 @@ public class Servlet extends HttpServlet {
     
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
 	}
@@ -42,5 +40,4 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/GeneratedSolution.jsp");
         view.forward(request, response);
 	}
-
 }
