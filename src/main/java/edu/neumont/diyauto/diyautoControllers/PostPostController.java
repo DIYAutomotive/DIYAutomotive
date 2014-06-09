@@ -1,9 +1,5 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-
 import edu.neumont.diyauto.Models.CommentModel;
 import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.PostModel;
@@ -11,6 +7,10 @@ import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.ServiceLoader;
 import edu.neumont.diyauto.Services.PostsService;
 import edu.neumont.diyauto.Services.ThreadsService;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 @RequestScoped
 public class PostPostController
@@ -47,7 +47,7 @@ public class PostPostController
         String comment = request.getParameter("comment");
         CommentModel Comment = new CommentModel();
         Comment.setComment(comment);
-        post.setCommentId(Comment.getIdComment());
+        //post.setCommentId(Comment.getIdComment());
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + postID);
         return MAV;
     }

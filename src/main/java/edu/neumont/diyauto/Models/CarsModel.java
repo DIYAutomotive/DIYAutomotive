@@ -1,19 +1,18 @@
 package edu.neumont.diyauto.Models;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "Cars", schema = "", catalog = "diyauto")
+@Table(name = "Cars", schema = "diyauto")
 public class CarsModel {
     private int idCars;
     private int makeId;
     private int modelId;
     private int subModelId;
-    private Date year;
+    private int year;
     private int userId;
     private MakeModel makeByMakeId;
     private ModelModel modelByModelId;
@@ -30,6 +29,11 @@ public class CarsModel {
         this.idCars = idCars;
     }
 
+    @Basic
+    @Column(name = "MakeID")
+    public int getMakeId() {
+        return makeId;
+    }
 
     public void setMakeId(int makeId) {
         this.makeId = makeId;
@@ -57,11 +61,11 @@ public class CarsModel {
 
     @Basic
     @Column(name = "Year")
-    public Date getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(Date year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
@@ -87,7 +91,7 @@ public class CarsModel {
         if (modelId != carsModel.modelId) return false;
         if (subModelId != carsModel.subModelId) return false;
         if (userId != carsModel.userId) return false;
-        if (year != null ? !year.equals(carsModel.year) : carsModel.year != null) return false;
+        if (year != carsModel.year) return false;
 
         return true;
     }
@@ -98,13 +102,13 @@ public class CarsModel {
         result = 31 * result + makeId;
         result = 31 * result + modelId;
         result = 31 * result + subModelId;
-        result = 31 * result + (year != null ? year.hashCode() : 0);
+        result = 31 * result + year;
         result = 31 * result + userId;
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "MakeID", referencedColumnName = "idMake", nullable = false)
+    @JoinColumn(name = "MakeID", referencedColumnName = "idMake", nullable = false, insertable = false, updatable = false)
     public MakeModel getMakeByMakeId() {
         return makeByMakeId;
     }
@@ -114,7 +118,7 @@ public class CarsModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "ModelID", insertable = false, updatable = false, referencedColumnName = "idModel", nullable = false)
+    @JoinColumn(name = "ModelID", referencedColumnName = "idModel", nullable = false, insertable = false, updatable = false)
     public ModelModel getModelByModelId() {
         return modelByModelId;
     }
@@ -134,7 +138,7 @@ public class CarsModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "UserID", referencedColumnName = "idUser", insertable = false, updatable = false)
+    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false, insertable = false, updatable = false)
     public AccountModel getAccountByUserId() {
         return accountByUserId;
     }

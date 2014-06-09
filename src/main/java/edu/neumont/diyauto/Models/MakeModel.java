@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "Make", schema = "", catalog = "diyauto")
+@Table(name = "Make", schema = "diyauto")
 public class MakeModel {
     private int idMake;
     private String make;

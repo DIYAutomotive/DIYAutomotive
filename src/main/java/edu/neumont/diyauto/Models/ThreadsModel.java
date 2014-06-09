@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "Threads", schema = "", catalog = "diyauto")
+@Table(name = "diyauto.Threads")
 public class ThreadsModel {
     private int idThreads;
     private String name;
     private String description;
-    private int postId;
-    private Collection<PostModel> postByPostId;
+    private Collection<PostModel> postsByIdThreads;
 
     @Id
     @Column(name = "idThreads")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdThreads() {
         return idThreads;
     }
@@ -45,16 +45,6 @@ public class ThreadsModel {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "postId")
-    public int getPostId() {
-        return postId;
-    }
-
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,7 +53,6 @@ public class ThreadsModel {
         ThreadsModel that = (ThreadsModel) o;
 
         if (idThreads != that.idThreads) return false;
-        if (postId != that.postId) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
@@ -75,16 +64,15 @@ public class ThreadsModel {
         int result = idThreads;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + postId;
         return result;
     }
 
-    @OneToMany(mappedBy = "threadsesByIdPost")
-    public Collection<PostModel> getPostByPostId() {
-        return postByPostId;
+    @OneToMany(mappedBy = "threadsByThreadId")
+    public Collection<PostModel> getPostsByIdThreads() {
+        return postsByIdThreads;
     }
 
-    public void setPostByPostId(Collection<PostModel> postByPostId) {
-        this.postByPostId = postByPostId;
+    public void setPostsByIdThreads(Collection<PostModel> postsByIdThreads) {
+        this.postsByIdThreads = postsByIdThreads;
     }
 }

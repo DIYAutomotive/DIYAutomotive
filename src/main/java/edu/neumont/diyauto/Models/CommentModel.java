@@ -3,16 +3,17 @@ package edu.neumont.diyauto.Models;
 import javax.persistence.*;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "Comment", schema = "", catalog = "diyauto")
+@Table(name = "Comment", schema = "diyauto")
 public class CommentModel {
     private int idComment;
     private String comment;
     private int userId;
+    private int postId;
     private AccountModel accountByUserId;
-    private PostModel postsByIdComment;
+    private PostModel postByPostId;
 
     @Id
     @Column(name = "idComment")
@@ -44,6 +45,16 @@ public class CommentModel {
         this.userId = userId;
     }
 
+    @Basic
+    @Column(name = "postId")
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,6 +63,7 @@ public class CommentModel {
         CommentModel that = (CommentModel) o;
 
         if (idComment != that.idComment) return false;
+        if (postId != that.postId) return false;
         if (userId != that.userId) return false;
         if (comment != null ? !comment.equals(that.comment) : that.comment != null) return false;
 
@@ -63,6 +75,7 @@ public class CommentModel {
         int result = idComment;
         result = 31 * result + (comment != null ? comment.hashCode() : 0);
         result = 31 * result + userId;
+        result = 31 * result + postId;
         return result;
     }
 
@@ -77,12 +90,12 @@ public class CommentModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idComment", referencedColumnName = "CommentID", nullable = false , insertable = false, updatable = false)
-    public PostModel getPostsByIdComment() {
-        return postsByIdComment;
+    @JoinColumn(name = "postId", referencedColumnName = "idPost", nullable = false, insertable = false, updatable = false)
+    public PostModel getPostByPostId() {
+        return postByPostId;
     }
 
-    public void setPostsByIdComment(PostModel postsByIdComment) {
-        this.postsByIdComment = postsByIdComment;
+    public void setPostByPostId(PostModel postByPostId) {
+        this.postByPostId = postByPostId;
     }
 }

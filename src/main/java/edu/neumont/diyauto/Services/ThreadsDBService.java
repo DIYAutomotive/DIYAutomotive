@@ -45,7 +45,7 @@ public class ThreadsDBService implements  ThreadsService {
     @Override
     public void updatePost(int ID, PostModel post) {
         ThreadsModel thread = em.find(ThreadsModel.class,ID);
-        thread.setPostId(post.getIdPost());
+        //thread.setPostsByIdThreads();
         em.persist(thread);
     }
 

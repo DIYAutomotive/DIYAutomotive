@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "Post", schema = "", catalog = "diyauto")
+@Table(name = "Post", schema = "diyauto")
 public class PostModel {
     private int idPost;
     private int userId;
     private String description;
-    private int commentId;
     private String title;
+    private int threadId;
     private AccountModel accountByUserId;
-    private Collection<CommentModel> commentByCommentId;
-    private ThreadsModel threadsesByIdPost;
+    private ThreadsModel threadsByThreadId;
+    private Collection<CommentModel> commentsByIdPost;
 
     @Id
     @Column(name = "idPost")
@@ -49,16 +49,6 @@ public class PostModel {
     }
 
     @Basic
-    @Column(name = "CommentID")
-    public int getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(int commentId) {
-        this.commentId = commentId;
-    }
-
-    @Basic
     @Column(name = "Title")
     public String getTitle() {
         return title;
@@ -68,6 +58,16 @@ public class PostModel {
         this.title = title;
     }
 
+    @Basic
+    @Column(name = "threadId")
+    public int getThreadId() {
+        return threadId;
+    }
+
+    public void setThreadId(int threadId) {
+        this.threadId = threadId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,8 +75,8 @@ public class PostModel {
 
         PostModel postModel = (PostModel) o;
 
-        if (commentId != postModel.commentId) return false;
         if (idPost != postModel.idPost) return false;
+        if (threadId != postModel.threadId) return false;
         if (userId != postModel.userId) return false;
         if (description != null ? !description.equals(postModel.description) : postModel.description != null)
             return false;
@@ -90,13 +90,13 @@ public class PostModel {
         int result = idPost;
         result = 31 * result + userId;
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + commentId;
         result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + threadId;
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false , insertable = false, updatable = false)
+    @JoinColumn(name = "UserID", referencedColumnName = "idUser", nullable = false, insertable = false, updatable = false)
     public AccountModel getAccountByUserId() {
         return accountByUserId;
     }
@@ -105,22 +105,22 @@ public class PostModel {
         this.accountByUserId = accountByUserId;
     }
 
-    @OneToMany(mappedBy = "postsByIdComment")
-    public Collection<CommentModel> getCommentByCommentId() {
-        return commentByCommentId;
-    }
-
-    public void setCommentByCommentId(Collection<CommentModel> commentByCommentId) {
-        this.commentByCommentId = commentByCommentId;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "idPost", referencedColumnName = "postId", nullable = false, insertable = false, updatable = false)
-    public ThreadsModel getThreadsesByIdPost() {
-        return threadsesByIdPost;
+    @JoinColumn(name = "threadId", referencedColumnName = "idThreads", nullable = false, insertable = false, updatable = false)
+    public ThreadsModel getThreadsByThreadId() {
+        return threadsByThreadId;
     }
 
-    public void setThreadsesByIdPost(ThreadsModel threadsesByIdPost) {
-        this.threadsesByIdPost = threadsesByIdPost;
+    public void setThreadsByThreadId(ThreadsModel threadsByThreadId) {
+        this.threadsByThreadId = threadsByThreadId;
+    }
+
+    @OneToMany(mappedBy = "postByPostId")
+    public Collection<CommentModel> getCommentsByIdPost() {
+        return commentsByIdPost;
+    }
+
+    public void setCommentsByIdPost(Collection<CommentModel> commentsByIdPost) {
+        this.commentsByIdPost = commentsByIdPost;
     }
 }

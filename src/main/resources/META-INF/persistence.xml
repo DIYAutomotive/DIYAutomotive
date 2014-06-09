@@ -15,11 +15,11 @@
         <class>edu.neumont.diyauto.Models.ThreadsModel</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mysqldb"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/diyauto"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="stuff"/>
             <property name="hb2ddl.auto" value="create"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
         </properties>
     </persistence-unit>
 </persistence>

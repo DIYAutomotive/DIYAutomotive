@@ -24,7 +24,7 @@ public class PostsDBService implements PostsService
     @Override
     public Collection<PostModel> getAll(int ThreadID) {
         ThreadsModel thread = em.find(ThreadsModel.class, ThreadID);
-        return thread.getPostByPostId();
+        return thread.getPostsByIdThreads();
     }
     @Override
     public PostModel getPost(int postID) {
@@ -37,7 +37,7 @@ public class PostsDBService implements PostsService
     @Override
     public void updateComment(int PostID, CommentModel comment) {
         PostModel post = em.find(PostModel.class, PostID);
-        post.setCommentId(comment.getIdComment());
+        //post.setCommentsByIdPost();
         em.persist(post);
     }
 }

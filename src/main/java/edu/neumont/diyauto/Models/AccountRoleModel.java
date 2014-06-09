@@ -3,14 +3,15 @@ package edu.neumont.diyauto.Models;
 import javax.persistence.*;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "AccountRole", schema = "", catalog = "diyauto")
+@Table(name = "AccountRole", schema = "diyauto")
 public class AccountRoleModel {
     private int id;
     private int userId;
     private int role;
+    private AccountModel accountByUserId;
 
     @Id
     @Column(name = "id")
@@ -62,5 +63,15 @@ public class AccountRoleModel {
         result = 31 * result + userId;
         result = 31 * result + role;
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "UserId", referencedColumnName = "idUser", nullable = false, insertable = false, updatable = false)
+    public AccountModel getAccountByUserId() {
+        return accountByUserId;
+    }
+
+    public void setAccountByUserId(AccountModel accountByUserId) {
+        this.accountByUserId = accountByUserId;
     }
 }

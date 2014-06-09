@@ -1,14 +1,14 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-
 import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.PostModel;
 import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.Services.PostsService;
 import edu.neumont.diyauto.Services.ThreadsService;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 @RequestScoped
 public class PostGetController

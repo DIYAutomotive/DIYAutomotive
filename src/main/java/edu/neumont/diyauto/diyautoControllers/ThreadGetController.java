@@ -1,13 +1,12 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import java.util.Collection;
-
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-
 import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.Services.ThreadsService;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import java.util.Collection;
 @RequestScoped
 public class ThreadGetController
 {

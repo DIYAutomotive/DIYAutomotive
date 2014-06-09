@@ -4,19 +4,20 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "Account", schema = "", catalog = "diyauto")
+@Table(name = "Account", schema = "diyauto")
 public class AccountModel {
     private int idUser;
     private String passWord;
     private String email;
     private String avatar;
     private String username;
+    private Collection<AccountRoleModel> accountRolesByIdUser;
     private Collection<CarsModel> carsesByIdUser;
-    private Collection<CommentModel> commentsByIdUser;
     private Collection<PostModel> postsByIdUser;
+    private Collection<CommentModel> commentsByIdUser;
 
     @Id
     @Column(name = "idUser")
@@ -95,6 +96,15 @@ public class AccountModel {
     }
 
     @OneToMany(mappedBy = "accountByUserId")
+    public Collection<AccountRoleModel> getAccountRolesByIdUser() {
+        return accountRolesByIdUser;
+    }
+
+    public void setAccountRolesByIdUser(Collection<AccountRoleModel> accountRolesByIdUser) {
+        this.accountRolesByIdUser = accountRolesByIdUser;
+    }
+
+    @OneToMany(mappedBy = "accountByUserId")
     public Collection<CarsModel> getCarsesByIdUser() {
         return carsesByIdUser;
     }
@@ -104,20 +114,20 @@ public class AccountModel {
     }
 
     @OneToMany(mappedBy = "accountByUserId")
-    public Collection<CommentModel> getCommentsByIdUser() {
-        return commentsByIdUser;
-    }
-
-    public void setCommentsByIdUser(Collection<CommentModel> commentsByIdUser) {
-        this.commentsByIdUser = commentsByIdUser;
-    }
-
-    @OneToMany(mappedBy = "accountByUserId")
     public Collection<PostModel> getPostsByIdUser() {
         return postsByIdUser;
     }
 
     public void setPostsByIdUser(Collection<PostModel> postsByIdUser) {
         this.postsByIdUser = postsByIdUser;
+    }
+
+    @OneToMany(mappedBy = "accountByUserId")
+    public Collection<CommentModel> getCommentsByIdUser() {
+        return commentsByIdUser;
+    }
+
+    public void setCommentsByIdUser(Collection<CommentModel> commentsByIdUser) {
+        this.commentsByIdUser = commentsByIdUser;
     }
 }

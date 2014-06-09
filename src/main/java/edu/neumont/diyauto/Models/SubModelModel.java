@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jjensen on 6/5/14.
+ * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "SubModel", schema = "", catalog = "diyauto")
+@Table(name = "SubModel", schema = "diyauto")
 public class SubModelModel {
     private int idSubModel;
     private String subModel;

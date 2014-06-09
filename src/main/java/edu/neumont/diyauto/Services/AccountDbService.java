@@ -1,12 +1,12 @@
 package edu.neumont.diyauto.Services;
 
+import edu.neumont.diyauto.Models.AccountModel;
+
 import javax.ejb.Local;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import edu.neumont.diyauto.Models.AccountModel;
 
 @Stateless
 @LocalBean
