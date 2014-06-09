@@ -13,6 +13,7 @@
         <class>edu.neumont.diyauto.Models.PostModel</class>
         <class>edu.neumont.diyauto.Models.SubModelModel</class>
         <class>edu.neumont.diyauto.Models.ThreadsModel</class>
+        <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/diyauto"/>
