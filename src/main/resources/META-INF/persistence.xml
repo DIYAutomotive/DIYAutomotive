@@ -3,8 +3,9 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="DIYAutomotive" >
-        <!--<jta-data-source>java:jboss/datasources/mysqldb</jta-data-source>-->
+
+    <persistence-unit name="DIYAutomotive">
+        <jta-data-source>java:jboss/datasources/diyautoDS</jta-data-source>
 
         <class>edu.neumont.diyauto.Models.AccountModel</class>
         <class>edu.neumont.diyauto.Models.AccountRoleModel</class>
