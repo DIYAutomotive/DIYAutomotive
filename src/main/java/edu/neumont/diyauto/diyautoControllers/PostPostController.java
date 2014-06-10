@@ -1,9 +1,6 @@
 package edu.neumont.diyauto.diyautoControllers;
 
-import edu.neumont.diyauto.Models.CommentModel;
-import edu.neumont.diyauto.Models.ModelAndView;
-import edu.neumont.diyauto.Models.PostModel;
-import edu.neumont.diyauto.Models.ThreadsModel;
+import edu.neumont.diyauto.Models.*;
 import edu.neumont.diyauto.ServiceLoader;
 import edu.neumont.diyauto.Services.PostsService;
 import edu.neumont.diyauto.Services.ThreadsService;
@@ -26,17 +23,19 @@ public class PostPostController
 //    }
     public ModelAndView createPost(int threadID)
     {
-        int ID = ServiceLoader.threadID++;
-        String userName = request.getParameter("user");
+
         String title = request.getParameter("title");
         String body = request.getParameter("postBody");
         //String tags = request.getParameter()
         PostModel post = new PostModel();
         post.setDescription(body);
         post.setTitle(title);
+        post.setUserId(1);
+        post.setThreadId(threadID);
 
-        threadsService.updatePost(threadID, post);
-        ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + ID);
+        int postId = threadsService.updatePost(threadID, post);
+
+        ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + postId );
 
         return MAV;
     }

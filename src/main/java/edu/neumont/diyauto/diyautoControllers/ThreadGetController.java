@@ -4,10 +4,13 @@ import edu.neumont.diyauto.Models.ModelAndView;
 import edu.neumont.diyauto.Models.ThreadsModel;
 import edu.neumont.diyauto.Services.ThreadsService;
 
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.Collection;
-@RequestScoped
+
+@Stateless
+@LocalBean
 public class ThreadGetController
 {
     @Inject ThreadsService threadService;

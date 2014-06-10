@@ -9,9 +9,9 @@
         <!--Your content goes here-->
         <h2>${Model.name}</h2>
         <hr>
-        <a href="/threads/${Model.threadID}/post/create">Create Post</a>
-        <c:forEach var="post" items="${Model.posts.allPosts}">
-            <a href="/threads/${Model.threadID}/post/${post.postID}">${post.title}</a>
+        <a href="/threads/${Model.idThreads}/post/create">Create Post</a><br/>
+        <c:forEach var="post" items="${Model.postsByIdThreads}">
+            <a href="/threads/${Model.idThreads}/post/${post.idPost}">${post.title}</a><br/>
         </c:forEach>
 
     </jsp:body>

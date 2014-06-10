@@ -25,7 +25,7 @@
             <c:forEach var="thread" items="${Model}" >
                 <tr>
                     <td>
-                        <a href="/threads/${thread.threadID}">${thread.name}</a>
+                        <a href="/threads/${thread.idThreads}">${thread.name}</a>
                     </td>
                     <td>
                         ${thread.description}

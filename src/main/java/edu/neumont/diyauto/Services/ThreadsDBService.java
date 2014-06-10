@@ -22,7 +22,7 @@ public class ThreadsDBService implements  ThreadsService {
 
     @Override
     public List<ThreadsModel> getAll() {
-        return em.createQuery("SELECT t FROM Threads t", ThreadsModel.class).getResultList();
+        return em.createQuery("SELECT t FROM ThreadsModel t", ThreadsModel.class).getResultList();
     }
 
     @Override
@@ -34,6 +34,7 @@ public class ThreadsDBService implements  ThreadsService {
     @Override
     public ThreadsModel getThread(int ID) {
         return em.find(ThreadsModel.class, ID);
+
     }
 
     @Override
@@ -43,10 +44,12 @@ public class ThreadsDBService implements  ThreadsService {
     }
 
     @Override
-    public void updatePost(int ID, PostModel post) {
+    public int updatePost(int ID, PostModel post) {
         ThreadsModel thread = em.find(ThreadsModel.class,ID);
-        //thread.setPostsByIdThreads();
+        thread.getPostsByIdThreads().add(post);
+        em.persist(post);
         em.persist(thread);
+        return post.getIdPost();
     }
 
     @Override

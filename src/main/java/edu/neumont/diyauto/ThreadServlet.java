@@ -35,9 +35,11 @@ public class ThreadServlet extends HttpServlet {
 
     @Inject
     ThreadPostController tpc;
+    @Inject ThreadGetController threadGet;
 
     @Inject
     PostPostController ppc;
+    @Inject PostGetController postGet;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,8 +57,7 @@ public class ThreadServlet extends HttpServlet {
     }
     public ModelAndView getURIParser(HttpServletRequest request, HttpServletResponse response)
     {
-        ThreadGetController threadGet = new ThreadGetController();
-        PostGetController postGet = new PostGetController();
+
         String URI = request.getRequestURI();
         ModelAndView MAV = null;
         Matcher match = this.P.matcher(URI);

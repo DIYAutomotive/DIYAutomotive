@@ -7,7 +7,10 @@ import java.util.Collection;
  * Created by jjensen on 6/9/14.
  */
 @Entity
-@Table(name = "diyauto.Threads")
+@Table(name = "Threads")
+/*@NamedQueries({
+        @NamedQuery(name="byId", query="SELECT a FROM Threads a WHERE a.idThreads = :idThreads")
+})*/
 public class ThreadsModel {
     private int idThreads;
     private String name;
@@ -67,7 +70,7 @@ public class ThreadsModel {
         return result;
     }
 
-    @OneToMany(mappedBy = "threadsByThreadId")
+    @OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "threadsByThreadId")
     public Collection<PostModel> getPostsByIdThreads() {
         return postsByIdThreads;
     }

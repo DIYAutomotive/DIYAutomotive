@@ -20,6 +20,8 @@ public class PostModel {
 
     @Id
     @Column(name = "idPost")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     public int getIdPost() {
         return idPost;
     }

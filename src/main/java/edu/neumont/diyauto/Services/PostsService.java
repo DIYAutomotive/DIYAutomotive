@@ -13,5 +13,5 @@ public interface PostsService
     public Collection<PostModel> getAll(int ThreadID);
     public PostModel getPost(int postID);
     public void deleteComment (int threadID, int PostID, int CommentID);
-    public void updateComment(int PostID, CommentModel comment);
+    public int updateComment(int PostID, CommentModel comment);
 }
