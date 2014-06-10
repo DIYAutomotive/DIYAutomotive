@@ -4,6 +4,8 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
     <persistence-unit name="DIYAutomotive" >
+        <!--<jta-data-source>java:jboss/datasources/mysqldb</jta-data-source>-->
+
         <class>edu.neumont.diyauto.Models.AccountModel</class>
         <class>edu.neumont.diyauto.Models.AccountRoleModel</class>
         <class>edu.neumont.diyauto.Models.CarsModel</class>
@@ -13,7 +15,6 @@
         <class>edu.neumont.diyauto.Models.PostModel</class>
         <class>edu.neumont.diyauto.Models.SubModelModel</class>
         <class>edu.neumont.diyauto.Models.ThreadsModel</class>
-        <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/diyauto"/>
