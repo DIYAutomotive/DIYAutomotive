@@ -50,8 +50,8 @@
                                         <jndi-name>java:jboss/datasources/diyautoDS</jndi-name>
                                         <enabled>true</enabled>
                                         <enable>true</enable>
-                                        <user-name>root</user-name> <!-- Change for your uses -->
-                                        <password>stuff</password> <!-- Change for your uses -->
+                                        <user-name>admin7BpbjK5</user-name> <!-- Change for your uses -->
+                                        <password>hpJmxy3IzUMT</password> <!-- Change for your uses -->
                                         <driver-name>mysql.jar</driver-name>
                                         <use-ccm>false</use-ccm>
                                     </properties>
