@@ -30,4 +30,12 @@ public class PostGetController
         ModelAndView MAV = new ModelAndView(post, "/WEB-INF/views/posts/ViewPost.jsp");
         return MAV;
     }
+
+    public ModelAndView editPost(int threadID, int postID)
+    {
+        ThreadsModel thread = threadsService.getThread(threadID);
+        PostModel post = postsService.getPost(postID);
+        ModelAndView MAV = new ModelAndView(post, "/WEB-INF/views/posts/PostEdit.jsp");
+        return MAV;
+    }
 }

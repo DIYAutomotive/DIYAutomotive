@@ -10,14 +10,14 @@
         <h1>${Model.title}</h1>
         <hr>
         <span><p>${Model.description}</p></span>
-        <%--<c:forEach var="comment" items="${Model.comments.commentsList}" >--%>
-            <%--<span>--%>
-                <%--<p>--%>
-                  <%--${comment.comment}<br/>--%>
-                  <%--User: ${comment.user.username}--%>
-                <%--</p>--%>
-            <%--</span>--%>
-        <%--</c:forEach>--%>
+        <c:forEach var="comment" items="${Model.commentsByIdPost}">
+            <span>
+                <p>
+                  ${comment.comment}<br/>
+                  User: ${comment.user.username}
+                </p>
+            </span>
+        </c:forEach>
         <form method="post">
             Add Comment: <input name="comment"/>
             <input type="submit"/>
