@@ -55,12 +55,13 @@ public class PostPostController
     }
 
     public ModelAndView editPost(int threadID, int postID) {
+
         PostModel post = postsService.getPost(postID);
         String title = request.getParameter("titleEdit");
         String description = request.getParameter("postBodyEdit");
         post.setTitle(title);
         post.setDescription(description);
-        threadsService.updatePost(threadID, post);
+        threadsService.newUpdatePost(threadID, post);
         ModelAndView MAV = new ModelAndView(null, "/threads/"+threadID+"post"+postID);
         return MAV;
     }
