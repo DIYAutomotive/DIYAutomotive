@@ -117,7 +117,7 @@ public class PostModel {
         this.threadsByThreadId = threadsByThreadId;
     }
 
-    @OneToMany(mappedBy = "postByPostId")
+    @OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "postByPostId")
     public Collection<CommentModel> getCommentsByIdPost() {
         return commentsByIdPost;
     }

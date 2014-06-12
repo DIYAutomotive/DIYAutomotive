@@ -36,5 +36,25 @@ public class ThreadGetController
 
 	}
 
+    public ModelAndView getThreadEdit(int ID)
+    {
+        ThreadsModel thread = threadService.getThread(ID);
+        ModelAndView MAV = new ModelAndView(thread, "/WEB-INF/views/threads/ThreadEdit.jsp");
+        return MAV;
 
+    }
+
+    public ModelAndView getThreadDeletionPage() {
+        Collection<ThreadsModel> allThreads = threadService.getAll();
+        // List allThreads = new ArrayList();
+        //allThreads.add(ServiceLoader.thread);
+        ModelAndView MAV = new ModelAndView(allThreads, "/WEB-INF/views/threads/AllThreadsDeletion.jsp");
+        return MAV;
+    }
+
+    public ModelAndView getAllThreadPosts(int threadID) {
+        ThreadsModel thread = threadService.getThread(threadID);
+        ModelAndView MAV = new ModelAndView(thread, "/WEB-INF/views/threads/ThreadPostDeletion.jsp");
+        return MAV;
+    }
 }

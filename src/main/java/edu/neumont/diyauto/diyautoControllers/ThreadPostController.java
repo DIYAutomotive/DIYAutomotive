@@ -44,4 +44,24 @@ public class ThreadPostController {
     public void setRequest(HttpServletRequest request) {
         this.request = request;
     }
+
+    public ModelAndView deleteThread()
+    {
+        int threadID = Integer.parseInt(request.getParameter("threadIDDeletion"));
+        threadService.deleteThread(threadID);
+        ModelAndView MAV = new ModelAndView(null, "/threads/viewAll/edit");
+        return MAV;
+    }
+
+    public ModelAndView editThread(int threadID)
+    {
+        ThreadsModel thread = threadService.getThread(threadID);
+        String title =  request.getParameter("title");
+        String description = request.getParameter("description");
+        thread.setName(title);
+        thread.setDescription(description);
+        threadService.updateThread(thread);
+        ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID);
+        return MAV;
+    }
 }
