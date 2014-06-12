@@ -46,8 +46,22 @@ public class PostPostController
         String comment = request.getParameter("comment");
         CommentModel Comment = new CommentModel();
         Comment.setComment(comment);
+        Comment.setUserId(1);
+        Comment.setPostId(postID);
+        postsService.updateComment(postID, Comment);
         //post.setCommentId(Comment.getIdComment());
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + postID);
+        return MAV;
+    }
+
+    public ModelAndView editPost(int threadID, int postID) {
+        PostModel post = postsService.getPost(postID);
+        String title = request.getParameter("titleEdit");
+        String description = request.getParameter("postBodyEdit");
+        post.setTitle(title);
+        post.setDescription(description);
+        threadsService.updatePost(threadID, post);
+        ModelAndView MAV = new ModelAndView(null, "/threads/"+threadID+"post"+postID);
         return MAV;
     }
 }
