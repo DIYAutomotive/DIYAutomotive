@@ -1,5 +1,11 @@
 <%@tag description="Overall Page template" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin:0px auto;}
+    .tg td{font-family:Arial, sans-serif;font-size:36px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+    .tg th{font-family:Arial, sans-serif;font-size:36px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+    .tg .tg-a0td{font-size:100%}
+</style>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/default_style.css" />
