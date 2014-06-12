@@ -37,6 +37,9 @@ public class PostsDBService implements PostsService
     @Override
     public int updateComment(int PostID, CommentModel comment) {
         PostModel post = em.find(PostModel.class, PostID);
+        post.getCommentsByIdPost().add(comment);
+        em.persist(comment);
+        em.persist(post);
         //post.setCommentsByIdPost();
         em.persist(post);
         return comment.getIdComment();

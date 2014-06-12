@@ -14,7 +14,7 @@
             <span>
                 <p>
                   ${comment.comment}<br/>
-                  User: ${comment.user.username}
+                  <%--User: ${comment.user.username}--%>
                 </p>
             </span>
         </c:forEach>

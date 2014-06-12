@@ -46,6 +46,9 @@ public class PostPostController
         String comment = request.getParameter("comment");
         CommentModel Comment = new CommentModel();
         Comment.setComment(comment);
+        Comment.setUserId(1);
+        Comment.setPostId(postID);
+        postsService.updateComment(postID, Comment);
         //post.setCommentId(Comment.getIdComment());
         ModelAndView MAV = new ModelAndView(null, "/threads/" + threadID+"/post/" + postID);
         return MAV;
