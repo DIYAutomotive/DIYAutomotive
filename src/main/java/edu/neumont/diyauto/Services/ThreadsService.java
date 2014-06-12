@@ -16,4 +16,5 @@ public interface ThreadsService
     public void deleteThread (int ID);
     public int updatePost(int ID, PostModel post);
     public void deletePost(int threadID, PostModel post);
+    public int newUpdatePost(int ID, PostModel post);
 }

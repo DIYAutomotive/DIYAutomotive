@@ -32,7 +32,7 @@ public class ThreadServlet extends HttpServlet {
     private static final Pattern P4 = Pattern.compile("(/threads/)([0-9]+)");
     private static final Pattern P7 = Pattern.compile("(/threads/)([0-9]+)(/post/)([0-9]+)");
     private static final Pattern P8 = Pattern.compile("(/threads/)([0-9]+)(/post/)(create)");
-    private static final Pattern P9 = Pattern.compile("(/threads/)(/viewAll/)(edit)");
+    private static final Pattern P9 = Pattern.compile("(/threads/)(viewAll/)(edit)");
     private static final Pattern P10 = Pattern.compile("(/threads/)([0-9]+)(/edit)");///thread/${thread.threadID}/edit
     private static final Pattern P11 = Pattern.compile("(/threads/)([0-9]+)(/post/)([0-9]+)(/edit)");///threads/${thread.id}/post/${post.postID}/edi
     private static final Pattern P12 = Pattern.compile("(/threads/)([0-9]+)(/post/)(editAll)");
@@ -79,7 +79,12 @@ public class ThreadServlet extends HttpServlet {
         Matcher match12 = this.P12.matcher(URI);
         //This needs to be fixed you are handling and integer but
         //according to your pattern it should say all so that does not parse
-        if(match12.find())
+
+        if(match9.find())
+        {
+            MAV = threadGet.getThreadDeletionPage();
+        }
+        else if(match12.find())
         {
             int threadID = Integer.parseInt(match12.group(2));
             MAV = threadGet.getAllThreadPosts(threadID);
@@ -94,10 +99,6 @@ public class ThreadServlet extends HttpServlet {
         {
             int ID = Integer.parseInt(match10.group(2));
             MAV = threadGet.getThreadEdit(ID);
-        }
-        else if(match9.find())
-        {
-            MAV = threadGet.getThreadDeletionPage();
         }
         else if(match7.find())
         {
