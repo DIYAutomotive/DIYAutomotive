@@ -38,4 +38,5 @@ public class PostGetController
         ModelAndView MAV = new ModelAndView(post, "/WEB-INF/views/posts/PostEdit.jsp");
         return MAV;
     }
+
 }

@@ -65,4 +65,14 @@ public class PostPostController
         ModelAndView MAV = new ModelAndView(null, "/threads/"+threadID+"post"+postID);
         return MAV;
     }
+
+    public ModelAndView removePost(int threadID) {
+
+            int postID = Integer.parseInt(request.getParameter("postIDDeletion"));
+            PostModel post = postsService.getPost(postID);
+            threadsService.deletePost(threadID, post);
+            ModelAndView MAV = new ModelAndView(null, "/threads/"+threadID+"/post/editAll");
+            return MAV;
+
+    }
 }

@@ -157,10 +157,16 @@ public class ThreadServlet extends HttpServlet {
         Matcher match9 = this.P9.matcher(URI);
         Matcher match10 = this.P10.matcher(URI);
         Matcher match11 = this.P11.matcher(URI);
+        Matcher match12 = this.P12.matcher(URI);
 //        P9 = Pattern.compile("(/threads/)(/viewAll/)(edit)");
 //        private static final Pattern P10 = Pattern.compile("(/threads/)([0-9]+)(/edit)");///thread/${thread.threadID}/edit
 //        private static final Pattern P11 = Pattern.compile("(/threads/)([0-9]+)(/post/)([0-9]+)(/edit)");
-        if(match11.find())
+        if(match12.find())
+        {
+            int threadID = Integer.parseInt(match12.group(2));
+            MAV = ppc.removePost(threadID);
+        }
+        else if(match11.find())
         {
             int threadID = Integer.parseInt(match11.group(2));
             int postID = Integer.parseInt(match11.group(4));
