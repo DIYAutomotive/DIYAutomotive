@@ -10,7 +10,6 @@
         <h2>${Model.name}</h2>
         <hr>
         <form method="post">
-            Title:
             Edit: <input type="text" name="title" value="${Model.name}"/><br/>
             Description:
             Edit: <br/> <textarea cols="30" rows="7" name="description">${Model.description}</textarea><br/>

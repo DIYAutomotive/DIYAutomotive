@@ -13,14 +13,21 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:genericpage>
     <jsp:body>
+        <style type="text/css">
+            .tftable {font-size:1.1em;color:#333333;width:100%;border-width: 10px;border-color: #a9a9a9;border-collapse: collapse;}
+            .tftable th {font-size:1.1em;background-color:#b8b8b8;border-width: 10px;padding: 8px;border-style: solid;border-color: #a9a9a9;text-align:left;}
+            .tftable tr {background-color:#ffffff;}
+            .tftable td {font-size:1.1em;border-width: 1px;padding: 8px;border-style: solid;border-color: #a9a9a9;}
+            .tftable tr:hover {background-color:#ffff99;}
+        </style>
         <!--Your content goes here-->
         <h2>Threads</h2>
         <hr>
-        <table>
+        <table  class="tftable">
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Number Of Posts</th>
+                <th>Thread ID</th>
             </tr>
             <c:forEach var="thread" items="${Model}">
                 <tr>
@@ -38,7 +45,7 @@
             </c:forEach>
 
         </table>
-        <h3>Input thread ID to Delete</h3>
+        <h3>Input Thread ID to Delete</h3>
         <form method="post">
             Thread ID<input type="text" name="threadIDDeletion"/><br/>
             <input type="submit">

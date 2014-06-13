@@ -13,8 +13,9 @@
 
         <form method="post">
             Title: ${Model.title}
+            <br/>
             Edit: <input type="text" name="titleEdit"/><br/>
-            Post Body ${Model.description}
+            Post Body: ${Model.description}
             :<br/> <textarea cols="30" rows="7" name="postBodyEdit"></textarea><br/>
             <input type="submit">
         </form>
