@@ -27,7 +27,7 @@ public class ThreadsDBService implements  ThreadsService {
 
     @Override
     public void updateThread(ThreadsModel thread) {
-        em.persist(thread);
+        em.merge(thread);
 
     }
 
@@ -54,15 +54,13 @@ public class ThreadsDBService implements  ThreadsService {
 
     @Override
     public int newUpdatePost(int ID, PostModel post) {
-        ThreadsModel thread = em.find(ThreadsModel.class,ID);
-        thread.getPostsByIdThreads().add(post);
-        em.persist(post);
+        em.remove(em.contains(post) ? post : em.merge(post));
         return post.getIdPost();
     }
 
     @Override
     public void deletePost(int threadID, PostModel post) {
-//        ThreadsModel thread = em.find(ThreadsModel.class, threadID);
-//        PostModel post = thread.getPostByPostId()
+
+        em.remove(em.contains(post) ? post : em.merge(post));
     }
 }
